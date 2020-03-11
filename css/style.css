@@ -1,0 +1,132 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+} 
+
+.header-navigation {
+    background-color: black;
+}
+
+.header-nav-content {
+    width: 90%;
+    margin: auto;
+}
+
+#logo {
+    height: 100%;
+    float: left; 
+    font-size: 2.5em;
+    font-family: 'Marck Script', cursive;   
+    
+}
+
+#logo span {
+    font-weight: 1000;
+    color: #f08e63;
+}
+
+.btn-general {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    height: 3em;
+    width: 5em;
+}
+
+main {
+    padding-top: 2em;
+}
+
+.container-custom {
+    width: 1400px;
+    margin: auto;
+}
+
+.general-title {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card {
+    width: 18em;
+}
+
+.carousel .carousel-item {
+    height: 35em;
+}
+
+.carousel .carousel-item img{
+    filter: brightness(50%);
+}
+
+.carousel-inner > .carousel-item {
+    width: 100%;
+}
+
+#happening-now {
+    position: relative;
+}
+
+.happening-now-text h2{
+    position: absolute;
+    z-index: 20;
+    top: 25%;
+    background-color: transparent;
+    font-size: 4em;
+}
+
+.happening-now-text p{
+    position: absolute;
+    z-index: 20;
+    top: 45%;
+    background-color: transparent;
+    font-size: 2em;
+    width: 50%;
+}
+
+.happening-now-text button{
+    position: absolute;
+    z-index: 20;
+    top: 70%;
+    width: 13em;
+    height: 4em;
+}
+
+.newsletter {
+    padding-top: 7em;
+    padding-bottom: 7em;
+}
+
+.newsletter input {
+    height: 3em;
+    border: 1px solid white;
+}
+
+footer {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: 70px 0;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.footer-contents {
+    background-color: white;
+}
+
+
+.logo-container {
+    width: 80%;
+}
