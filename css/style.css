@@ -3,8 +3,6 @@ html {
 }
 
 * {
-    background-color: black;
-    color: white;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -24,7 +22,8 @@ html {
     margin: auto;
 }
 
-#logo {
+.logo {
+    color: white;
     height: 100%;
     float: left; 
     font-size: 2.5em;
@@ -32,7 +31,7 @@ html {
     
 }
 
-#logo span {
+.logo span {
     font-weight: 1000;
     color: #f08e63;
 }
@@ -47,11 +46,20 @@ html {
 
 main {
     padding-top: 2em;
+    background-color: black;
 }
 
 .container-custom {
     width: 1400px;
     margin: auto;
+}
+
+.card-content{
+    background-color: black;
+}
+
+.upcoming-events {
+    background-color: black;
 }
 
 .general-title {
@@ -76,6 +84,7 @@ main {
 
 #happening-now {
     position: relative;
+    color: white;
 }
 
 .happening-now-text h2{
@@ -119,14 +128,29 @@ footer {
     overflow: hidden;
     padding: 70px 0;
     box-sizing: border-box;
-    background-color: white;
-}
-
-.footer-contents {
-    background-color: white;
+    
 }
 
 
 .logo-container {
     width: 80%;
 }
+
+.logo-footer {
+    color: black;
+    height: 100%;
+    float: left; 
+    font-size: 2.5em;
+    font-family: 'Marck Script', cursive;      
+}
+
+.logo-footer span {
+    font-weight: 1000;
+    color: #f08e63;
+}
+
+.footer-links li a i{
+    color: black;
+    font-size: 2em;
+}
+
