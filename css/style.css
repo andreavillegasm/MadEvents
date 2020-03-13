@@ -186,3 +186,9 @@ footer {
     height: 3em;
     width: 6em;
 }
+
+/*COMMENT AND RATING CSS*/
+
+.start-rating .fa-star{
+    color: yellow;
+}
