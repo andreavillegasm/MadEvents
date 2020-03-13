@@ -31,16 +31,8 @@ html {
 }
 
 .logo span {
-    font-weight: 1000;
+    font-weight: bold;
     color: #f08e63;
-}
-
-.btn-general {
-    border: 1px solid white;
-    color: white;
-    background-color: transparent;
-    height: 3em;
-    width: 5em;
 }
 
 main {
