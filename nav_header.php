@@ -1,6 +1,4 @@
-<?php
-
-?>
+<link src="css/bootstrap.min.css" />
 <header>
     <div class="header-navigation">
         <div class="header-nav-content">
@@ -8,7 +6,7 @@
                 <div class="nav-link">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a class="nav-link text-light" href="index.html">Home</a>
+                            <a class="nav-link text-light" href="index.php">Home</a>
                         </li>
                         <li class="list-inline-item">
                             <a class="nav-link text-light" href="eventdashboard.php">Events</a>
@@ -22,8 +20,8 @@
                 <div class="logo">MAD<span>EVENTS</span></div>
 
                 <div class="login-btn">
-                    <button type="button" class="btn-general">Sign In</button>
-                    <button type="button" class="btn-general">Sign Up</button>
+                    <a href="signup.php" class="btn btn-outline-light">Sign In</a>
+                    <a href="login.php" class="btn btn-outline-light">Sign Up</a>
                 </div>
             </div>
         </div>
