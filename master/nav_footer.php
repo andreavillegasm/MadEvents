@@ -1,6 +1,4 @@
-<?php
 
-?>
 <footer>
     <div class="footer-contents container-custom d-flex flex-row">
         <div class="logo-container d-flex flex-column">

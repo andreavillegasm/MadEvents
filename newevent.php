@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>New Event</title>
     <link rel="stylesheet" type="text/css" href="css/myevent.css">
-    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -19,7 +19,7 @@
 include 'master/nav_header.php';
 
 ?>
-<main>
+<main style="background-image: url('img/flowerbg.jpg');background-size: 65%; ">
     <div class="container">
         <div class="new-event-container">
         <h1 class="main-title">Create an Event</h1>
@@ -57,6 +57,4 @@ include 'master/nav_footer.php';
 
 ?>
 </body>
-
-
 </html>
