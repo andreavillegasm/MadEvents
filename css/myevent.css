@@ -1,4 +1,5 @@
 /* STYLE GUIDE*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /*NEW EVENT*/
 .main-title{
@@ -18,4 +19,17 @@
     background-color: white;
     width: 50%;
     margin: auto;
+}
+/* FRIEND LIST */
+.friend-container{
+    padding: 1.5em;
+    border-radius: 1rem;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+
+}
+#btn_addFriend{
+    text-align: center;
+    width: 20%;
 }
