@@ -1,0 +1,17 @@
+/* STYLE GUIDE*/
+
+/*NEW EVENT*/
+.main-title{
+    text-align: center;
+    margin-top: 2em;
+}
+.submit{
+    text-align: center;
+}
+.btn-info{
+    width: 40%;
+}
+.new-event-container{
+    background-color: white;
+    width: 50%;
+}
