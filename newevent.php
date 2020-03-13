@@ -16,14 +16,14 @@
 <?php
 
 //The Header Nav Bar
-include 'master/nav_header.php';
+include 'nav_header.php';
 
 ?>
 <main style="background-image: url('img/flowerbg.jpg');background-size: 65%; ">
     <div class="container">
         <div class="new-event-container">
         <h1 class="main-title">Create an Event</h1>
-        <form>
+        <form method="post" action="eventdashboard.php">
             <div class="form-group">
                 <label for="event_name">Event Name:</label>
                 <input type="text" class="form-control" id="event_name" name="event_name" value="">
@@ -53,7 +53,7 @@ include 'master/nav_header.php';
 </main>
 <?
 //Adds the footer
-include 'master/nav_footer.php';
+include 'nav_footer.php';
 
 ?>
 </body>

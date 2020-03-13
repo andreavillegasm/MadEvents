@@ -8,13 +8,13 @@
                 <div class="nav-link">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a class="nav-link text-light" href="#">Home</a>
+                            <a class="nav-link text-light" href="index.html">Home</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link text-light" href="#">Events</a>
+                            <a class="nav-link text-light" href="eventdashboard.php">Events</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link text-light" href="#">Create Events</a>
+                            <a class="nav-link text-light" href="newevent.php">Create Events</a>
                         </li>
                     </ul>
                 </div>
