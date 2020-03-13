@@ -11,7 +11,7 @@ html {
 
 *, *::before, *::after {
     box-sizing: inherit;
-} 
+}
 
 .header-navigation {
     background-color: black;
@@ -25,10 +25,9 @@ html {
 .logo {
     color: white;
     height: 100%;
-    float: left; 
+    float: left;
     font-size: 2.5em;
-    font-family: 'Marck Script', cursive;   
-    
+    font-family: 'Marck Script', cursive;
 }
 
 .logo span {
@@ -46,6 +45,7 @@ html {
 
 main {
     padding-top: 2em;
+    padding-bottom: 2em;
     background-color: black;
 }
 
@@ -54,7 +54,7 @@ main {
     margin: auto;
 }
 
-.card-content{
+.card-content {
     background-color: black;
 }
 
@@ -74,11 +74,11 @@ main {
     height: 35em;
 }
 
-.carousel .carousel-item img{
+.carousel .carousel-item img {
     filter: brightness(50%);
 }
 
-.carousel-inner > .carousel-item {
+.carousel-inner>.carousel-item {
     width: 100%;
 }
 
@@ -87,7 +87,7 @@ main {
     color: white;
 }
 
-.happening-now-text h2{
+.happening-now-text h2 {
     position: absolute;
     z-index: 20;
     top: 25%;
@@ -95,7 +95,7 @@ main {
     font-size: 4em;
 }
 
-.happening-now-text p{
+.happening-now-text p {
     position: absolute;
     z-index: 20;
     top: 45%;
@@ -104,7 +104,7 @@ main {
     width: 50%;
 }
 
-.happening-now-text button{
+.happening-now-text button {
     position: absolute;
     z-index: 20;
     top: 70%;
@@ -128,9 +128,7 @@ footer {
     overflow: hidden;
     padding: 70px 0;
     box-sizing: border-box;
-    
 }
-
 
 .logo-container {
     width: 80%;
@@ -139,9 +137,9 @@ footer {
 .logo-footer {
     color: black;
     height: 100%;
-    float: left; 
+    float: left;
     font-size: 2.5em;
-    font-family: 'Marck Script', cursive;      
+    font-family: 'Marck Script', cursive;
 }
 
 .logo-footer span {
@@ -149,8 +147,42 @@ footer {
     color: #f08e63;
 }
 
-.footer-links li a i{
+.footer-links li a i {
     color: black;
     font-size: 2em;
+    margin-right: 0.5em;
 }
 
+/* LOGIN CSS */
+
+.login-container {
+    border: 0;
+    border-radius: 1rem;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.login-container .card-body {
+    padding: 2rem;
+}
+
+.login-container .btn-google {
+    color: white;
+    background-color: #ea4335;
+}
+
+.login-container .btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+.login-container .btn-general-sign {
+    border: 1px solid black;
+    color: black;
+    background-color: transparent;
+    height: 3em;
+    width: 6em;
+}
