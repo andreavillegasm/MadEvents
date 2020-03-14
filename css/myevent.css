@@ -1,4 +1,6 @@
 /* STYLE GUIDE*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 
 /*NEW EVENT*/
 .main-title{
@@ -19,3 +21,47 @@
     width: 50%;
     margin: auto;
 }
+/* FRIEND LIST */
+.friend-container{
+    padding: 1.5em;
+    border-radius: 1rem;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+
+}
+#btn_addFriend{
+    text-align: center;
+    width: 20%;
+}
+/* EVENT DASHBOARD*/
+.banner-event{
+    height:10em;
+    text-align: center;
+}
+#my-events, #event-catchline{
+    color: white;
+}
+.dashboard{
+    padding: 0;
+    margin: 0;
+}
+.myevents-main{
+    padding-top: 0;
+}
+#card-event{
+    margin-top: 50%;
+    text-align: center;
+    background-color: ghostwhite;
+    color: darkorange;
+    padding: 0.5em;
+}
+.new-event-button{
+    text-align: center;
+    padding-bottom: 2em;
+}
+.card:hover{
+    opacity: 60%;
+}
+
+

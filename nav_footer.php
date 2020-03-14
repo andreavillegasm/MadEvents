@@ -4,7 +4,7 @@
         <div class="logo-container d-flex flex-column">
             <div class="logo-footer">MAD<span>EVENTS</span></div>
             <p>&copy;2020 Mad Events, Humber College North</p>
-        </div>
+        </div>:
 
         <div class="footer-links">
             <ul class="d-flex flex-row">
