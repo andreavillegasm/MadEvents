@@ -57,6 +57,9 @@ main {
 .card {
     width: 18em;
 }
+.card-body{
+    background-color: black;
+}
 
 .carousel .carousel-item {
     height: 35em;
