@@ -35,6 +35,10 @@ html {
     color: #f08e63;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 main {
     padding-top: 2em;
     padding-bottom: 2em;
@@ -153,8 +157,9 @@ footer {
     margin-bottom: 5em;
 }
 
-.login-container .card-body {
+.card-body {
     padding: 2rem;
+    background-color: black;
 }
 
 .login-container .btn-google {

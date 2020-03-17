@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col-xs-6 col-sm-3">
                 <div class="card border-0">
                     <img class="card-img-top" src="img/sign.jpg" alt="Card image cap">
                     <div class="card-body card-content">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-xs-6 col-sm-3">
                 <div class="card border-0">
                     <img class="card-img-top" src="img/breath.jpg" alt="Card image cap">
                     <div class="card-body card-content">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-xs-6 col-sm-3">
                 <div class="card border-0">
                     <img class="card-img-top" src="img/coffee.jpg" alt="Card image cap">
                     <div class="card-body card-content">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-xs-6 col-sm-3">
                 <div class="card border-0">
                     <img class="card-img-top" src="img/pineapple.jpg" alt="Card image cap">
                     <div class="card-body card-content">
@@ -94,7 +94,7 @@
             <div class="col">
                 <div class="form-newsletter">
                     <input type="text" placeholder="Email Address">
-                    <button type="button" class="btn-general">Submit</button>
+                    <button type="button" class="btn btn-light">Submit</button>
                 </div>
             </div>
         </div>

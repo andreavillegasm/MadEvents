@@ -1,5 +1,3 @@
-<link src="css/bootstrap.min.css"/>
-
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,48 +16,53 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <header>
-    <div class="header-navigation">
-        <div class="header-nav-content">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="nav-link">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="index.php">Home</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="eventdashboard.php">Events</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="newevent.php">Create Events</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuNav"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Others
-                                <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuNav">
-                                    <li>
-                                        <a href="feedback.php">Feedback</a>
-                                    </li>
-                                    <li>
-                                        <a href="feedback_admin.php">Feedback-admin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">MadEvents</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="eventdashboard.php">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="newevent.phpp">Create Events</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuNav"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Others
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuNav">
+                            <li>
+                                <a href="feedback.php">Feedback</a>
+                            </li>
+                            <li>
+                                <a href="feedback_admin.php">Feedback-admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
-                <div class="logo">MAD<span>EVENTS</span></div>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <div class="login-btn">
+                        <a href="signup.php" class="btn btn-outline-light">Sign In</a>
+                        <a href="login.php" class="btn btn-outline-light">Sign Up</a>
+                    </div>
+                </li>
+            </ul>
 
-                <div class="login-btn">
-                    <a href="signup.php" class="btn btn-outline-light">Sign In</a>
-                    <a href="login.php" class="btn btn-outline-light">Sign Up</a>
-                </div>
-            </div>
         </div>
+    </nav>
 </header>
 
 
