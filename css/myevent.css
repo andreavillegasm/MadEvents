@@ -64,4 +64,15 @@
     opacity: 60%;
 }
 
+/* EVENT INFO PAGE*/
+.view-gallery-btn{
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+    text-align: center;
+
+}
+#btn_viewGallery{
+    width: 20%;
+}
+
 

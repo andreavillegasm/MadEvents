@@ -32,10 +32,12 @@ include 'nav_header.php';
         <div class="row">
             <div class="col-sm">
                 <div class="card text-black">
+                    <a href="eventinfopublic.php">
                     <img src="img/logo.jpg" class="card-img" alt="sample1">
                     <div class="card-img-overlay">
                         <h5 class="card-title" id="card-event">Lana's Birthday</h5>
                     </div>
+                    </a>
                 </div>
             </div>
             <div class="col-sm">
