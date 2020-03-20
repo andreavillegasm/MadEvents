@@ -16,7 +16,7 @@
         <div class="jumbotron">
             <h1>Feecback</h1>
             <b>please tell us your experience for our website</b>
-            <form method="post" action="eventdashboard.php">
+            <form method="post" action="event_dashboard.php">
                 <div class="form-group">
                     <label for="feedback_title">Feedback Title:</label>
                     <input type="text" class="form-control" id="feedback_title" name="feedback_title"/>

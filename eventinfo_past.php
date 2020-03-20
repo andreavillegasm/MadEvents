@@ -1,4 +1,6 @@
 <?php
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@ include 'nav_header.php';
                 <div class="row">
                     <div class="col-sm">
                         <div class="card text-black">
-                            <a href="eventinfopublic.php">
+                            <a href="eventinfo_past.php">
                                 <img src="img/pineapple.jpg" class="card-img" alt="sample1">
                             </a>
                         </div>

@@ -28,10 +28,10 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="eventdashboard.php">Events</a>
+                    <a class="nav-link" href="event_dashboard.php">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="newevent.phpp">Create Events</a>
+                    <a class="nav-link" href="new_event.php">Create Events</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
