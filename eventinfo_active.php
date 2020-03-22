@@ -43,24 +43,32 @@ include 'nav_header.php';
 <main class="myevents-main" style="background-color: white">
     <section class="jumbotron text-center" style="background-image: url('img/header-event-info.jpg')">
         <div class="container">
-            <?php
-            foreach($info as $i){
+            <h1 class="jumbotron-heading" style="color: white;"><?php  echo $info[0] ?></h1>
 
-                ?>
-                <h1 class="jumbotron-heading" style="color: white;"><?php $i ?></h1>
+            <div class="event-description">
+                <?php echo $info[1]?>
+            </div>
+            <div class="event-description">
+                <?php echo $info[2] ?>
+            </div>
+            <div class="event-description">
+                <?php echo $info[3] ?>
+            </div>
+            <div class="row" id="info-buttons">
+                <div class="col" id="col-edit">
+                <form action="eventinfo_update.php" method="post"  >
+                    <input type="hidden" name="id" value="<?= $id; ?>" />
+                    <button type="submit" name="editEvent" class="btn btn-dark" id="infoedit-button">Edit</button>
+                </form>
+                </div>
+                <div class="col" id="col-delete">
+                <form action="eventinfo_delete.php" method="post"  >
+                    <input type="hidden" name="id" value="<?= $id; ?>" />
+                    <button type="submit" name="deleteEvent" class="btn btn-danger" id="infodelete-button">Delete</button>
+                </form>
+                </div>
+            </div>
 
-                <div>
-                    <?php $i ?>
-                </div>
-                <div>
-                    <?php $i ?>
-                </div>
-                <div>
-                    <?php $i ?>
-                </div>
-                <?php
-            }
-            ?>
 
         </div>
     </section>
