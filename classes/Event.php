@@ -20,7 +20,7 @@ class Event
     }
 
     public function listActiveEvents(){
-        $sql = "SELECT * FROM event_info WHERE status = '1'";
+        $sql = "SELECT * FROM event_info WHERE status = '1' ORDER BY id DESC";
         $pdostm = $this->dbconn->prepare($sql);
         $pdostm->execute();
 
@@ -59,4 +59,27 @@ class Event
             echo 'a problem occurred inserting your event';
         }
     }
+
+    public function infoEvent($id){
+        $sql = "SELECT * FROM event_info
+        join venue_list
+        on event_info.venue_id = venue_list.id 
+        where event_info.id = :id";
+        $pst = $this ->dbconn->prepare($sql);
+        $pst->bindParam(':id', $id);
+        $pst->execute();
+        $event = $pst->fetch(PDO::FETCH_OBJ);
+
+        $name = $event->event_name;
+        $date = $event->event_date;
+        $time = $event->event_time;
+        $location = $event->name;
+
+        $evalues = [$name, $date, $time, $location];
+
+        return  $evalues;
+
+
+    }
+
 }

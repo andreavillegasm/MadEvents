@@ -50,13 +50,17 @@ include 'nav_header.php';
                 <?php
                 foreach ($active as $a){
                 ?>
-                <div class="col-sm">
+                <div class="col">
                     <div class="card text-black">
                         <!-- Pass event with the id of the event -->
-                        <a href="eventinfo_past.php">
-                        <img src="img/logo.jpg" class="card-img" alt="sample1">
+                        <form action="eventinfo_active.php" method="post">
+                            <input type="hidden" name="id" value="<?= $a->id; ?>" />
+                            <button type="submit" name="viewEvent" class="btn-info">View</button>
+
+                        </form>
+                        <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                         <div class="card-img-overlay">
-                            <h5 class="card-title" ><?php echo $a->event_name ?></h5>
+                            <h5 class="event-name" ><?php echo $a->event_name ?></h5>
                         </div>
                         </a>
                     </div>
@@ -71,9 +75,9 @@ include 'nav_header.php';
                 <div class="col-sm">
                     <div class="card text-black">
                         <a href="eventinfo_past.php">
-                            <img src="img/logo.jpg" class="card-img" alt="sample1">
+                            <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                             <div class="card-img-overlay">
-                                <h5 class="card-title" id="card-event">Lana's Birthday</h5>
+                                <h5 class="event-name" id="card-event">Lana's Birthday</h5>
                             </div>
                         </a>
                     </div>

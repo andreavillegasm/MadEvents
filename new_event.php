@@ -57,7 +57,7 @@ include 'nav_header.php';
             <div class="form-group">
                 <label>Location:</label>
                 <select class="form-control" id="event_location" name="EventLocation">
-                    <option value="">Custom</option>
+                    <option value="">--Select an Option--</option>
                     <?php
                     foreach($venues as $venue){ ?>
                         <option value="<?php echo $venue->id ?>"> <?php echo $venue->name ?></option>
