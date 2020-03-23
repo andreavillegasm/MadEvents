@@ -138,4 +138,21 @@ class Event
 
     }
 
+    //DELETE EVENT
+    public  function deleteEvent($id){
+
+        //Receives id and deletes friend based on that
+        $sql = "DELETE FROM event_info WHERE id = :id";
+
+        $pdostm = $this ->dbconn -> prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $numRowsAffected = $pdostm->execute();
+
+        if($numRowsAffected){
+            header('Location: event_dashboard.php');
+        } else{
+            echo "problem deleting a Event";
+        }
+    }
+
 }
