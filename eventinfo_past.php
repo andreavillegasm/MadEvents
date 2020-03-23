@@ -1,5 +1,22 @@
 <?php
 
+require_once 'database/Database.php';
+require_once 'classes/Event.php';
+
+//Get the database connection
+$dbconn = Database::getDb();
+$ne = new Event($dbconn);
+
+
+if(isset($_POST['viewpEvent'])){
+    //Id of event that has been sent
+    $id = $_POST['id'];
+
+    //return a array with the information of that event
+    $info = $ne->infoEvent($id);
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -26,20 +43,21 @@ include 'nav_header.php';
 <main class="myevents-main" style="background-color: white">
     <section class="jumbotron text-center" style="background-image: url('img/header-event-info.jpg')">
         <div class="container">
-            <h1 class="jumbotron-heading" style="color: white;">Lana's Birthday</h1>
+            <h1 class="jumbotron-heading" style="color: white;"><?php  echo $info[0] ?></h1>
+            <div class="event-description">
+                Date: <?php  echo $info[1] ?>
+            </div>
+            <div class="event-description">
+                Time: <?php  echo $info[2] ?>
+            </div>
+            <div class="event-description">
+                Location: <?php  echo $info[3] ?>
+            </div>
         </div>
     </section>
     <div class="container">
         <div class="event-info- container">
-            <div>
-                Event Name: Lana's Birthday
-            </div>
-            <div>
-                Date:March 24th, 2019
-            </div>
-            <div>
-                Location: Malburn Hotel
-            </div>
+
             <div>
                 <!-- Carousel  of featured images-->
                 <div class="row">

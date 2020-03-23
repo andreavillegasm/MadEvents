@@ -45,6 +45,7 @@ include 'nav_header.php';
         <div class="new-event-button">
          <a href="new_event.php" id="btn_addEvent" class="btn btn-info">New Event</a>
         </div>
+        <!-- List of active events -->
         <div>Active Events
             <div class="row">
                 <?php
@@ -72,18 +73,32 @@ include 'nav_header.php';
                 ?>
             </div>
         </div>
+        <!-- List of Past Events -->
         <div> Past Events
             <div class="row">
-                <div class="col-sm">
-                    <div class="card text-black">
-                        <a href="eventinfo_past.php">
+                <?php
+                foreach ($past as $p){
+                    ?>
+                    <div class="col">
+                        <div class="card text-black">
+                            <!-- Pass event with the id of the event -->
                             <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                             <div class="card-img-overlay">
-                                <h5 class="event-name" id="card-event">Lana's Birthday</h5>
+                                <h5 class="event-name" ><?php echo $p->event_name ?></h5>
                             </div>
-                        </a>
+
+                        </div>
+                        <div class="view-button">
+                            <form action="eventinfo_past.php" method="post"  >
+                                <input type="hidden" name="id" value="<?= $p->id; ?>" />
+                                <button type="submit" name="viewpEvent" class="btn-info">View</button>
+                            </form>
+                        </div>
+
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
