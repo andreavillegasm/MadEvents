@@ -33,34 +33,54 @@
         <div class="login-container">
             <div class="card-body">
                 <h5 class="card-title text-center">Sign Up</h5>
-                <form action="">
+
+                <!-- error and success messages for signing up! -->
+                <?php
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == "emptform") {
+                            echo '<div class="alert alert-danger" role="alert">
+                             Fields cannot be empty!
+                          </div>';
+                        } else if ($_GET['error'] == "uidemailinvalid") {
+                            echo '<div class="alert alert-danger" role="alert">
+                            Invalid username and email
+                         </div>';
+                        } else if ($_GET['error'] == "matchpass") {
+                            echo '<div class="alert alert-danger" role="alert">
+                            Your Passwords do not match!
+                         </div>';
+                        } else if ($_GET['error'] == "usernametaken") {
+                            echo '<div class="alert alert-danger" role="alert">
+                            Username is already taken!
+                         </div>';
+                        }
+                    } else if ($_GET['signup'] == "success") {
+                        echo '<div class="alert alert-success" role="alert">
+                        Sign up successful!
+                     </div>';
+                    }
+                ?>
+                <form action="includes/signup.inc.php" method="post">
                     <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input type="text" class="form-control" id="firstname"
-                               placeholder="Your first name">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" class="form-control" id="lastname"
-                               placeholder="Your last name">
+                        <label for="username">Username</label>
+                        <input type="text" name="uid" class="form-control" id="username" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="emailAddress">Email Address</label>
-                        <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
-                               placeholder="Your email">
+                        <input type="email" name="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Your email">
                     </div>
                     <div class="form-group">
                         <label for="userPassword">Password</label>
-                        <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                        <input type="password" name="password" class="form-control" id="userPassword" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="userRetypePassword">Retype Password</label>
-                        <input type="password" class="form-control" id="userRetypePassword" placeholder="Retype Password">
+                        <input type="password" name="c_password" class="form-control" id="userRetypePassword" placeholder="Retype Password">
                     </div>
+                    <button type="submit" name="signup" class="btn btn-general-sign">Sign Up</button><span> Already have an account? <a
+                            href="login.php">Sign In</a></span>
                 </form>
 
-                <button type="submit" class="btn btn-general-sign">Sign Up</button><span> Already have an account? <a
-                        href="">Sign In</a></span>
 
                 <hr class="my-4">
 

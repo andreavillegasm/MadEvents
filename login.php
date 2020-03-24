@@ -33,25 +33,29 @@
         <div class="login-container">
             <div class="card-body">
                 <h5 class="card-title text-center">Sign In</h5>
-                <form action="">
+                <form action="includes/login.inc.php" method="post">
                     <div class="form-group">
-                        <label for="emailAddress">Email Address</label>
-                        <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
-                               placeholder="Your email">
+                        <label for="mailorusername">Email Address Or Username</label>
+                        <input type="text" class="form-control" name="mailorusername" id="mailorusername"
+                               placeholder="Your email or Username">
                     </div>
+
                     <div class="form-group">
                         <label for="userPassword">Password</label>
-                        <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="userPassword" placeholder="Password">
                     </div>
 
                     <div class="form-check mb-4">
                         <input type="checkbox" class="form-check-input" id="rememberme">
                         <label class="form-check-label" for="rememberme">Remember Password</label>
                     </div>
+
+                    <button type="submit" name="login" class="btn btn-outline-dark">Sign In</button>
                 </form>
 
-                <button type="submit" class="btn btn-outline-dark">Sign In</button>
-                <span> -- Don't have an account? <a href="signup.php" class="btn btn-outline-dark">Sign Up</a></span>
+                    <span> -- Don't have an account? <a href="signup.php" class="btn btn-outline-dark">Sign Up</a></span>
+
+                    
 
                 <hr class="my-4">
 

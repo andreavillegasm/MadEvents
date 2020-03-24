@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <link src="css/bootstrap.min.css"/>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -55,8 +59,17 @@
                 <div class="logo">MAD<span>EVENTS</span></div>
 
                 <div class="login-btn">
-                    <a href="signup.php" class="btn btn-outline-light">Sign In</a>
-                    <a href="login.php" class="btn btn-outline-light">Sign Up</a>
+
+                <?php
+                    if (isset($_SESSION['userId'])) {
+                        echo '<form action="includes/logout.inc.php" method="post">
+                        <button type="submit" name="logout">Sign Out</button>
+                    </form>';
+                    } else {
+                        echo '<a href="login.php" class="btn btn-outline-light">Sign In</a>
+                        <a href="signup.php" class="btn btn-outline-light">Sign Up</a>'; 
+                    }
+                ?>
                 </div>
             </div>
         </div>
