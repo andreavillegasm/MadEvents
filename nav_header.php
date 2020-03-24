@@ -31,26 +31,34 @@ session_start();
                             <a class="nav-link text-light" href="index.php">Home</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link text-light" href="event_dashboard.php">Events</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="new_event.php">Create Events</a>
+                            <a class="nav-link text-light" href="new_event.php">Create Event</a>
                         </li>
                         <li class="list-inline-item">
                             <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuNav"
+                                <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuNav"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Others
+                                    Events
                                     <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuNav">
-                                    <li>
-                                        <a href="feedback.php">Feedback</a>
-                                    </li>
-                                    <li>
-                                        <a href="feedback_admin.php">Feedback-admin</a>
-                                    </li>
-                                </ul>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="event_dashboard.php">My Events</a>
+                                    <a class="dropdown-item" href="#">Popular Events</a>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="list-inline-item">
+                            <div class="dropdown">
+                                <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuNav"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Feedback
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="feedback.php">Feedback</a>
+                                    <a class="dropdown-item" href="feedback_admin.php">Feedback-admin</a>
+                                </div>
                             </div>
                         </li>
                     </ul>
