@@ -57,15 +57,16 @@ include 'nav_header.php';
                         <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                         <div class="card-img-overlay">
                             <h5 class="event-name" ><?php echo $a->event_name ?></h5>
+                            <div class="view-button">
+                                <form action="eventinfo_active.php" method="post"  >
+                                    <input type="hidden" name="id" value="<?= $a->id; ?>" />
+                                    <button type="submit" name="viewEvent" class="btn-info">View</button>
+                                </form>
+                            </div>
                         </div>
 
                     </div>
-                    <div class="view-button">
-                        <form action="eventinfo_active.php" method="post"  >
-                            <input type="hidden" name="id" value="<?= $a->id; ?>" />
-                            <button type="submit" name="viewEvent" class="btn-info">View</button>
-                        </form>
-                    </div>
+
 
                 </div>
                 <?php
@@ -85,15 +86,15 @@ include 'nav_header.php';
                             <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                             <div class="card-img-overlay">
                                 <h5 class="event-name" ><?php echo $p->event_name ?></h5>
+                                <div class="view-button">
+                                    <form action="eventinfo_past.php" method="post"  >
+                                        <input type="hidden" name="id" value="<?= $p->id; ?>" />
+                                        <button type="submit" name="viewpEvent" class="btn-info">View</button>
+                                    </form>
+                                </div>
                             </div>
+                        </div>
 
-                        </div>
-                        <div class="view-button">
-                            <form action="eventinfo_past.php" method="post"  >
-                                <input type="hidden" name="id" value="<?= $p->id; ?>" />
-                                <button type="submit" name="viewpEvent" class="btn-info">View</button>
-                            </form>
-                        </div>
 
                     </div>
                     <?php
