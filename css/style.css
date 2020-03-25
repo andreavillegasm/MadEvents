@@ -1,0 +1,190 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.header-navigation {
+    background-color: black;
+}
+
+.header-nav-content {
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    color: white;
+    height: 100%;
+    float: left;
+    font-size: 2.5em;
+    font-family: 'Marck Script', cursive;
+}
+
+.logo span {
+    font-weight: bold;
+    color: #f08e63;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: black;
+}
+
+.container-custom {
+    width: 1400px;
+    margin: auto;
+}
+
+.upcoming-events {
+    background-color: black;
+}
+
+.general-title {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card {
+    width: 18em;
+}
+.card-body{
+    background-color: black;
+}
+
+.carousel .carousel-item {
+    height: 35em;
+}
+
+.carousel .carousel-item img {
+    filter: brightness(50%);
+}
+
+.carousel-inner>.carousel-item {
+    width: 100%;
+}
+
+#happening-now {
+    position: relative;
+    color: white;
+}
+
+.happening-now-text h2 {
+    position: absolute;
+    z-index: 20;
+    top: 25%;
+    background-color: transparent;
+    font-size: 4em;
+}
+
+.happening-now-text p {
+    position: absolute;
+    z-index: 20;
+    top: 45%;
+    background-color: transparent;
+    font-size: 2em;
+    width: 50%;
+}
+
+.happening-now-text button {
+    position: absolute;
+    z-index: 20;
+    top: 70%;
+    width: 13em;
+    height: 4em;
+}
+
+.newsletter {
+    padding-top: 7em;
+    padding-bottom: 7em;
+}
+
+.newsletter input {
+    height: 3em;
+    border: 1px solid white;
+}
+
+footer {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: 70px 0;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    width: 80%;
+}
+
+.logo-footer {
+    color: black;
+    height: 100%;
+    float: left;
+    font-size: 2.5em;
+    font-family: 'Marck Script', cursive;
+}
+
+.logo-footer span {
+    font-weight: 1000;
+    color: #f08e63;
+}
+
+.footer-links li a i {
+    color: black;
+    font-size: 2em;
+    margin-right: 0.5em;
+}
+
+/* LOGIN CSS */
+
+.login-container {
+    border: 0;
+    border-radius: 1rem;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.card-body {
+    padding: 2rem;
+    background-color: black;
+}
+
+.login-container .btn-google {
+    color: white;
+    background-color: #ea4335;
+}
+
+.login-container .btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+.login-container .btn-general-sign {
+    border: 1px solid black;
+    color: black;
+    background-color: transparent;
+    height: 3em;
+    width: 6em;
+}
+
+/*COMMENT AND RATING CSS*/
+
+.start-rating .fa-star{
+    color: yellow;
+}

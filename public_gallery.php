@@ -1,8 +1,8 @@
 <?php
-require_once 'Class/Connection.php';
-require_once  'Class/Query.php';
+require_once 'classes/Database.php';
+require_once 'classes/Query.php';
 
-$dbcon = Connection::getdb();
+$dbcon = Database::getdb();
 $gallery = new Query($dbcon);
 $list = $gallery->public_gallery();
 //var_dump($list);
@@ -18,23 +18,7 @@ $list = $gallery->public_gallery();
     <script src="https://kit.fontawesome.com/4e714b0be7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-            <a href="index.html" class="navbar-brand d-flex align-items-center">
-                <strong>Mad Event</strong>
-            </a>
-            <a href="public_gallery.php" class="navbar-brand d-flex align-items-center">Gallery</a>
-            <a href="add_pic.php" class="navbar-brand d-flex align-items-center">Add More</a>
-            <a href="admin_gallery.php" class="navbar-brand d-flex align-items-center">
-                My Profile
-            </a>
-            <form method="post" action="" >
-                <input type="submit" name="logout"  value="Logout" />
-            </form>
-        </div>
-    </div>
-</header>
+<?php include "nav_header.php" ?>
 
 <main role="main">
     <div class="album py-5 bg-light">
@@ -45,7 +29,7 @@ $list = $gallery->public_gallery();
                     <div class="card mb-4 box-shadow">
                         <img  src="data:image/jpeg;base64,<?php echo base64_encode($l->image); ?>" class="card-img-top" alt="Card image cap">
                         <div class="card-body">
-                            <p class="card-text"><?= $l->posts." <span style='color:blue'>".$l->tag_name ."</span>" ?></p>
+                            <p class="card-text" style="color:white"><?= $l->posts." <span style='color:blue'>".$l->tag_name ."</span>" ?></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="">
@@ -65,13 +49,7 @@ $list = $gallery->public_gallery();
 
 </main>
 
-<footer class="text-muted">
-    <div class="container">
-        <p class="float-right">
-            <a href="#">Back to top</a>
-        </p>
-    </div>
-</footer>
+<?php include "nav_footer.php" ?>
 </body>
 </html>
 

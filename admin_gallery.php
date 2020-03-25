@@ -1,9 +1,9 @@
 <?php
 session_start();
 if($_SESSION['username']){
-    require_once 'Class/Connection.php';
-    require_once  'Class/Query.php';
-    $dbcon = Connection::getDb();
+    require_once 'classes/Database.php';
+    require_once 'classes/Query.php';
+    $dbcon = Database::getDb();
     $gallery_users = new Query($dbcon);
     $users= $gallery_users->admin_gallery();
     $list = $gallery_users->public_gallery();
@@ -23,11 +23,11 @@ if($_SESSION['username']){
     }
 }
 else{
-    header('Location:login_gallery.php');
+    header('Location:login.php');
 }
 if(isset($_POST['logout'])){
     session_destroy();
-    header('Location:login_gallery.php');
+    header('Location:index.php');
 }
 
 ?>
@@ -46,23 +46,7 @@ if(isset($_POST['logout'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<header>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-            <a href="index.html" class="navbar-brand d-flex align-items-center">
-                <strong>Mad Event</strong>
-            </a>
-            <a href="public_gallery.php" class="navbar-brand d-flex align-items-center">Gallery</a>
-            <a href="add_pic.php" class="navbar-brand d-flex align-items-center">Add More</a>
-            <a href="admin_gallery.php" class="navbar-brand d-flex align-items-center">
-                My Profile
-            </a>
-            <form method="post" action="" >
-                <input type="submit" name="logout"  value="Logout" />
-            </form>
-        </div>
-    </div>
-</header>
+<?php include "nav_header.php" ?>
 
 <main role="main">
 
@@ -107,7 +91,7 @@ if(isset($_POST['logout'])){
     </div>
 
 </main>
-
+<?php include "nav_footer.php" ?>
 
 </body>
 </html>

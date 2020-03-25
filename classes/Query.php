@@ -15,7 +15,7 @@ Class Query{
         return $gallery_listing;
     }
     public function admin_gallery(){
-        $sql = "select * from gallery_users";
+        $sql = "select * from users";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
         $gallery_users = $pdostm->fetchAll(PDO::FETCH_OBJ);

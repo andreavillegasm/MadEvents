@@ -40,23 +40,7 @@ else{
 </head>
 
 <body>
-<header>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-            <a href="index.html" class="navbar-brand d-flex align-items-center">
-                <strong>Mad Event</strong>
-            </a>
-            <a href="public_gallery.php" class="navbar-brand d-flex align-items-center">Gallery</a>
-            <a href="add_pic.php" class="navbar-brand d-flex align-items-center">Add More</a>
-            <a href="admin_gallery.php" class="navbar-brand d-flex align-items-center">
-                My Profile
-            </a>
-            <form method="post" action="" >
-                <input type="submit" name="logout"  value="Logout" />
-            </form>
-        </div>
-    </div>
-</header>
+<?php include "nav_header.php" ?>
 
 <main role="main">
 
@@ -87,6 +71,7 @@ else{
         </form>
     </div>
 </main>
+<?php include "nav_footer.php" ?>
 </body>
 </html>
 
