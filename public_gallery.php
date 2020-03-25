@@ -1,4 +1,12 @@
 <?php
+require_once 'Class/Connection.php';
+require_once  'Class/Query.php';
+
+$dbcon = Connection::getdb();
+$gallery = new Query($dbcon);
+$list = $gallery->public_gallery();
+//var_dump($list);
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,13 +21,17 @@
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <i class="fas fa-image">&nbsp;</i>
-                <strong>Album</strong>
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <strong>Mad Event</strong>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a href="public_gallery.php" class="navbar-brand d-flex align-items-center">Gallery</a>
+            <a href="add_pic.php" class="navbar-brand d-flex align-items-center">Add More</a>
+            <a href="admin_gallery.php" class="navbar-brand d-flex align-items-center">
+                My Profile
+            </a>
+            <form method="post" action="" >
+                <input type="submit" name="logout"  value="Logout" />
+            </form>
         </div>
     </div>
 </header>
@@ -27,110 +39,26 @@
 <main role="main">
     <div class="album py-5 bg-light">
         <div class="container">
-
             <div class="row">
+                <?php foreach ($list as $l){?>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
+                        <img  src="data:image/jpeg;base64,<?php echo base64_encode($l->image); ?>" class="card-img-top" alt="Card image cap">
                         <div class="card-body">
-                            <p class="card-text">Image description</p>
+                            <p class="card-text"><?= $l->posts." <span style='color:blue'>".$l->tag_name ."</span>" ?></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
+                                    <form action="">
+                                        <input type="hidden" name="id" value="<?= $l->id;?>"/>
+                                        <input type="submit" name="username" value="<?= $l->user_name; ?>" class="btn btn-sm-outline-secondary" />
                                     </form>
                                 </div>
-                                <small class="text-muted">Posting Date</small>
+                                <small class="text-muted"><?= $l->post_date; ?></small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Image description</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
-                                    </form>
-                                </div>
-                                <small class="text-muted">Posting Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Image description</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
-                                    </form>
-                                </div>
-                                <small class="text-muted">Posting Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Image description</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
-                                    </form>
-                                </div>
-                                <small class="text-muted">Posting Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Image description</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
-                                    </form>
-                                </div>
-                                <small class="text-muted">Posting Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="image/gallery_icon.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Image description</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <form action="user.php">
-                                        <input type="hidden" name="id" value=""/>
-                                        <input type="submit" name="username" value="User Name" class="btn btn-sm-outline-secondary" />
-                                    </form>
-                                </div>
-                                <small class="text-muted">Posting Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php };?>
             </div>
         </div>
     </div>
