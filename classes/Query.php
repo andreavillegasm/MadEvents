@@ -28,13 +28,13 @@ Class Query{
         $count = $pdostm->execute();
         return $count;
     }
-    public function add_pic($username, $posts, $tag_name, $image, $post_date){
-        $sql = "insert into gallery_listing (user_name, posts, tag_name, image, post_date ) values(:username, :posts,:tag_name, :image, :post_date)";
+    public function add_pic($username, $posts, $tag_name, $image_path, $post_date){
+        $sql = "insert into gallery_listing (user_name, posts, tag_name, image_path, post_date ) values(:username, :posts,:tag_name, :image_path, :post_date)";
         $pdostm =$this->dbcon->prepare($sql);
         $pdostm->bindParam(':username',$username);
         $pdostm->bindParam(':posts',$posts);
         $pdostm->bindParam(':tag_name',$tag_name);
-        $pdostm->bindParam(':image',$image);
+        $pdostm->bindParam(':image_path',$image_path);
         $pdostm->bindParam(':post_date',$post_date);
         $count = $pdostm->execute();
         return $count;

@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 
 <link src="css/bootstrap.min.css"/>

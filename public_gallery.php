@@ -20,24 +20,24 @@ $list = $gallery->public_gallery();
 <body>
 <?php include "nav_header.php" ?>
 
-<main role="main">
-    <div class="album py-5 bg-light">
-        <div class="container">
+<main role="main" style="background-image:url('upload_gallery/bk.jpg')">
+    <div class="album py-5 bg-light" style="background-image:url('upload_gallery/bk.jpg')">
+        <div class="container" >
             <div class="row">
                 <?php foreach ($list as $l){?>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                        <img  src="data:image/jpeg;base64,<?php echo base64_encode($l->image); ?>" class="card-img-top" alt="Card image cap">
+                        <img  src="<?= $l->image_path; ?>" class="card-img-top" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text" style="color:white"><?= $l->posts." <span style='color:blue'>".$l->tag_name ."</span>" ?></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="">
                                         <input type="hidden" name="id" value="<?= $l->id;?>"/>
-                                        <input type="submit" name="username" value="<?= $l->user_name; ?>" class="btn btn-sm-outline-secondary" />
+                                        <input type="submit" name="username" style="color:white" value="<?= $l->user_name; ?>" class="btn btn-sm-outline-secondary" />
                                     </form>
                                 </div>
-                                <small class="text-muted"><?= $l->post_date; ?></small>
+                                <small class="text-muted" style="color:white"><?= $l->post_date; ?></small>
                             </div>
                         </div>
                     </div>

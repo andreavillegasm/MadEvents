@@ -54,6 +54,7 @@ if (isset($_POST['signup'])) {
             }
             else {
                 $query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+
                 $statement = mysqli_stmt_init($conn);
 
                 if (!mysqli_stmt_prepare($statement, $query)) {

@@ -2,9 +2,9 @@
 session_start();
 $error="";
 if($_SESSION){
-    require_once 'Class/Connection.php';
-    require_once 'Class/Query.php';
-    $dbcon  = Connection::getDb();
+    require_once 'classes/Database.php';
+    require_once 'classes/Query.php';
+    $dbcon  = Database::getDb();
     $gallery_listing = new Query($dbcon);
     if(isset($_POST['Edit'])){
         $id = $_POST['id'];
@@ -14,7 +14,7 @@ if($_SESSION){
         //var_dump($values);
         $tags = $values->tag_name;
         $posts = $values->posts;
-        $images = $values->image;
+        $images = $values->image_path;
     }
     if(isset($_POST['editpic'])){
         $postdescription = $_POST['post'];
@@ -28,7 +28,7 @@ if($_SESSION){
     }
 }
 else{
-    header('Location:signup.html');
+    header('Location:login.php');
 }
 ?>
 <!DOCTYPE HTML>
@@ -44,7 +44,7 @@ else{
 
 <main role="main">
 
-    <section class="jumbotron text-center" style="background-color:lightcoral">
+    <section class="jumbotron text-center" style="background-color:coral">
         <div class="container">
             <h1 class="jumbotron-heading"><?= $_SESSION['username']; ?> </h1>
         </div>
@@ -55,19 +55,19 @@ else{
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="idfield" value="<?= $id; ?>"/>
             <div class="form-group">
-                <img class="card-img-top" src="data:image/jpeg;base64,<?= base64_encode($images); ?>" style="width:500px" alt="Card image cap">
+                <img class="card-img-top" src="<?= $images; ?>" style="width:500px" alt="Card image cap">
             </div>
             <div class="form-group">
-                <label for="post">Image description:</label>
+                <label for="post" style="color:white">Image description:</label>
                 <input type="text" class="form-control" id="post" name="post"
                        placeholder="write something" value="<?= $posts; ?>">
             </div>
             <div class="form-group">
-                <label for="tag">Tag:</label>
+                <label for="tag" style="color:white">Tag:</label>
                 <input type="text" class="form-control" id="tag" name="tag"
                        value="<?= $tags; ?>" placeholder="write something">
             </div>
-            <input type="Submit" name="editpic" value="Edit" id="edit"/>
+            <input type="Submit" class="btn btn-outline-light" name="editpic"  value="Edit" id="edit"/>
         </form>
     </div>
 </main>
