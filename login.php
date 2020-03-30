@@ -57,28 +57,28 @@ if(isset($_POST['login'])){
     <div class="container">
         <div class="login-container">
             <div class="card-body">
-                <h5 class="card-title text-center">Sign In</h5>
+                <h5 class="card-title text-center text-white">Sign In</h5>
                 <form action="includes/login.inc.php" method="post">
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         <label for="mailorusername">Email Address Or Username</label>
                         <input type="text" class="form-control" name="mailorusername" id="mailorusername"
                                placeholder="Your email or Username">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         <label for="userPassword">Password</label>
                         <input type="password" class="form-control" name="password" id="userPassword" placeholder="Password">
                     </div>
 
                     <div class="form-check mb-4">
                         <input type="checkbox" class="form-check-input" id="rememberme">
-                        <label class="form-check-label" for="rememberme">Remember Password</label>
+                        <label class="form-check-label text-white" for="rememberme">Remember Password</label>
                     </div>
 
-                    <button type="submit" name="login" class="btn btn-outline-dark">Sign In</button>
+                    <button type="submit" name="login " class="btn btn-general-sign btn-light">Sign In</button>
                 </form>
 
-                    <span> -- Don't have an account? <a href="signup.php" class="btn btn-outline-dark">Sign Up</a></span>
+                    <span class="text-white"> -- Don't have an account? <a href="signup.php" class="btn btn-general-sign btn-light">Sign Up</a></span>
 
                     
 

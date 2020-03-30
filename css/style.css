@@ -9,7 +9,9 @@ html {
     text-decoration: none;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
@@ -35,7 +37,7 @@ html {
     color: #f08e63;
 }
 
-html{
+html {
     overflow-x: hidden;
 }
 
@@ -61,7 +63,8 @@ main {
 .card {
     width: 18em;
 }
-.card-body{
+
+.card-body {
     background-color: black;
 }
 
@@ -148,6 +151,7 @@ footer {
     margin-right: 0.5em;
 }
 
+
 /* LOGIN CSS */
 
 .login-container {
@@ -178,13 +182,13 @@ footer {
 .login-container .btn-general-sign {
     border: 1px solid black;
     color: black;
-    background-color: transparent;
     height: 3em;
     width: 6em;
 }
 
+
 /*COMMENT AND RATING CSS*/
 
-.start-rating .fa-star{
+.start-rating .fa-star {
     color: yellow;
 }
