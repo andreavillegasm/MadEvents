@@ -1,7 +1,6 @@
 <?php
 require 'nav_header.php';
 
-
 ?>
 
 

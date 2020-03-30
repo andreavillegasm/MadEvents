@@ -1,5 +1,4 @@
 <?php
-session_start();
 $error="";
 if($_SESSION){
     require_once 'classes/Database.php';

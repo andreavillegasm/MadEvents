@@ -1,4 +1,6 @@
-<?php include "nav_header.php"; ?>
+<?php 
+include "nav_header.php"; 
+?>
 <main id="main">
 
 <div class="container">
