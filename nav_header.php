@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 <link src="css/bootstrap.min.css"/>
@@ -81,11 +82,11 @@
                     <?php
                     if (isset($_SESSION['userId'])) {
                         echo '<form action="includes/logout.inc.php" method="post">
-                        <button type="submit" name="logout">Sign Out</button>
-                    </form>';
+                                <button type="submit" name="logout">Sign Out</button>
+                            </form>';
                     } else {
                         echo '<a href="login.php" class="btn btn-outline-light">Sign In</a>
-                        <a href="signup.php" class="btn btn-outline-light">Sign Up</a>';
+                                <a href="signup.php" class="btn btn-outline-light">Sign Up</a>';
                     }
                     ?>
                 </div>

@@ -75,7 +75,7 @@ if(isset($_POST['login'])){
                         <label class="form-check-label text-white" for="rememberme">Remember Password</label>
                     </div>
 
-                    <button type="submit" name="login " class="btn btn-general-sign btn-light">Sign In</button>
+                    <button type="submit" name="login" class="btn btn-general-sign btn-light">Sign In</button>
                 </form>
 
                     <span class="text-white"> -- Don't have an account? <a href="signup.php" class="btn btn-general-sign btn-light">Sign Up</a></span>
