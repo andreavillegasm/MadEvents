@@ -1,5 +1,6 @@
 <?php
 
+//check if the button login is pressed
 if (isset($_POST['login'])) {
     require 'database.php';
 
