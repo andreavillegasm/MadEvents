@@ -2,7 +2,7 @@
 
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 $dbname = 'mad_event';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);

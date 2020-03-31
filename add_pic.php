@@ -1,4 +1,5 @@
 <?php
+session_start();
 if($_SESSION){
     require_once 'classes/Database.php';
     require_once 'classes/Query.php';
