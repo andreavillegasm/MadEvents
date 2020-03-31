@@ -23,76 +23,74 @@ session_regenerate_id();
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <header>
-    <div class="header-navigation">
-        <div class="header-nav-content">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="nav-link">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="index.php">Home</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="nav-link text-light" href="new_event.php">Create Event</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="dropdown">
-                                <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuNav"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Gallery
-                                    <span class="caret"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="admin_gallery.php">My Profile</a>
-                                    <a class="dropdown-item" href="public_gallery.php">All Images</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="dropdown">
-                                <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuNav"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Events
-                                    <span class="caret"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="event_dashboard.php">My Events</a>
-                                    <a class="dropdown-item" href="#">Popular Events</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="dropdown">
-                                <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuNav"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Feedback
-                                    <span class="caret"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="feedback.php">Feedback</a>
-                                    <a class="dropdown-item" href="feedback_admin.php">Feedback-admin</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <div class="logo">MAD<span>EVENTS</span></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="index.php">Home</a>
+            </li>
 
-                <div class="logo">MAD<span>EVENTS</span></div>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="new_event.php">Create Event</a>
+            </li>
 
-                <div class="login-btn">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gallery
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="admin_gallery.php">My profile</a>
+                    <a class="dropdown-item" href="public_gallery.php">All Images</a>
+                </div>  
+            </li>
 
-                    <?php
-                    if (isset($_SESSION['userId'])) {
-                        echo '<form action="includes/logout.inc.php" method="post">
-                                <button type="submit" name="logout">Sign Out</button>
-                            </form>';
-                    } else {
-                        echo '<a href="login.php" class="btn btn-outline-light">Sign In</a>
-                                <a href="signup.php" class="btn btn-outline-light">Sign Up</a>';
-                    }
-                    ?>
-                </div>
-            </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="event_dashboard.php">My Events</a>
+                    <a class="dropdown-item" href="#">Popular Events</a>
+                </div>  
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Feedbacks
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="feedback.php">Feedback</a>
+                    <a class="dropdown-item" href="feedback_admin.php">Feedback Admin</a>
+                </div>  
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Contact Us</a>
+            </li>
+
+            <li class="nav-item login-btn">
+                <?php
+                if (isset($_SESSION['userId'])) {
+                    echo '<form action="includes/logout.inc.php" method="post">
+                            <button type="submit" name="logout">Sign Out</button>
+                        </form>';
+                } else {
+                    echo '<a href="login.php" class="btn btn-outline-light">Sign In</a>
+                            <a href="signup.php" class="btn btn-outline-light">Sign Up</a>';
+                }
+                ?>
+            </li>
+        </ul>
         </div>
+    </div>
+    </nav>
 </header>
 
 
