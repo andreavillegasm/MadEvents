@@ -36,6 +36,7 @@
 
                 <!-- error and success messages for signing up! -->
                 <?php
+
                     if (isset($_GET['error'])) {
                         if ($_GET['error'] == "emptform") {
                             echo '<div class="alert alert-danger" role="alert">
@@ -54,11 +55,14 @@
                                     Username is already taken!
                                 </div>';
                         }
-                    } else if ($_GET['signup'] == "success") {
+                    } 
+                    
+                    if (isset($_GET['signup'])) {
+                        if ($_GET["signup"] == "success")
                         echo '<div class="alert alert-success" role="alert">
                                 Sign up successful!
                             </div>';
-                    }
+                    } 
                 ?>
                 <form action="includes/signup.inc.php" method="post">
                     <div class="form-group text-white">
