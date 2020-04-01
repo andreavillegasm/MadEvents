@@ -20,4 +20,10 @@ This page (eventinfo_dashboard) will display the user's events both active and p
 When clicking on a specific active event, the user will be redirect to the event info page(eventinfo_active.php) which will give the users the ability to see the event details and invite friends to it. In this page the user will also be able to edit the event details (eventinfo_update.php), delete the event all together(eventinfo_delete.php, or close it which will archieve the event and make it part of the past events. 
 4. Past Event Info:
 When closing an event, said event becomes public and thus can be seen by everyone. Events that are closed can be liked and commented by anyone. When clicking on an specifc past event(eventinfo_past), a user will be able to see the event details, and any likes and comments that the event has. The owner of the event will also be able to upload pictures to said event to further show its success.
-
+## Log In System
+1. Signing up
+When users head to signup.php, they are allowed to register their account to sign in. To sign in they have to fill in the form with their username, email, password and confirm password.
+2. Signing in
+The registered users are able to sign in by entering their credentials that they used in signup.php in login.php.
+3. Loging out
+The user can log out by going to the home page (index.php) and clicking sign out.
