@@ -36,7 +36,7 @@ The user can log out by going to the home page (index.php) and clicking sign out
 
 1. View feedback: This page (feedback) will display all feedback users send. Admins can click to head to detail page.
 
-2. Change status of feedback: This page (feedback_detail) will display detail of this page. Admins can read messages and change status of the feedback.
+2. Change status of feedback: This page (feedback_detail) will display detail of this page. Admins can read messages and change status of the feedback. Once the feedback is viewed, admins can delete it.
 
 #### user:
 

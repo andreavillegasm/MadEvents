@@ -19,9 +19,7 @@ if(isset($_POST["submit"])){
         // should log in
         header("Location: login.php");
     }else if ($title != "" && $content != "") {
-
-        $db = new Database();
-        $dbcon = $db->getDb();
+        $dbcon = Database::getDb();
 
         $fb = new Feedback($dbcon);
         $count = $fb->addFeedback($userid, $title, $content);

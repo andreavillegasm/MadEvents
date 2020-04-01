@@ -3,6 +3,7 @@
 //its give the connection with database
 class Database
 {
+
     private static $username = 'root';
     private static $password = '';
     private static $dsn = 'mysql:host=localhost;dbname=mad_event';
