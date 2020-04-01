@@ -7,6 +7,7 @@ class Database
     private static $username = 'root';
     private static $password = '';
     private static $dsn = 'mysql:host=localhost;dbname=mad_event';
+//    private static $dsn = 'mysql:host=localhost;dbname=madevents';
 
     //create a connection property
     private static $dbcon;

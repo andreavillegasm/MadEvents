@@ -16,8 +16,7 @@ include "classes/Feedback.php";
 if(isset($_GET["FeedbackId"])){
 
 
-    $db = new Database();
-    $dbcon = $db->getDb();
+    $dbcon = Database::getDb();
     $fb = new Feedback($dbcon);
 
     $feedbacks = $fb->listFeedbackDetail($_GET["FeedbackId"]);

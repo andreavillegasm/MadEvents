@@ -3,8 +3,8 @@ include "classes/Database.php";
 include "classes/Feedback.php";
 
 // vars
-$db =  Database::getDb();
-$fb = new Feedback($db);
+$dbcon =  Database::getDb();
+$fb = new Feedback($dbcon);
 
 ?>
 

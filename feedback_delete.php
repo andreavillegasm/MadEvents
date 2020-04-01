@@ -10,8 +10,7 @@ if (isset($_GET["FeedbackId"])) {
     $id = $_GET["FeedbackId"];
 
 // prepare, bind, execute
-    $db = new Database();
-    $dbcon = $db->getDb();
+    $dbcon = Database::getDb();
 
     $fb = new Feedback($dbcon);
     $count = $fb->deleteFeedback($id);
