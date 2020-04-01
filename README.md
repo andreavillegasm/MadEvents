@@ -13,7 +13,7 @@ From(public_gallery.php) here everyone can see the complete pictures. Which is p
 2. Admin gallery:
 This(admin_gallery.php) is from user prespective so that a user can change(edit_pic.php) or delete their pictures. Moreover they can add(add_pic.php) as many picture as they want with description. Also they can add tags to their picture.
 
-## Create Event Feature (Andrea Villegas Mayorga)
+## Create Event Feature - Andrea Villegas Mayorga
 1. Create Event Form:
 This page(new_event.php) will allow users to create an event by inputting the event info and selecting a venue from the dropdown list provided by our compayny mad events.
 2. Event Dashboard:
