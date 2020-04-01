@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2020 at 10:21 PM
+-- Generation Time: Mar 31, 2020 at 11:08 PM
 -- Server version: 10.3.22-MariaDB-log-cll-lve
 -- PHP Version: 7.3.6
 
@@ -87,7 +87,7 @@ CREATE TABLE `event_info` (
   `event_time` time NOT NULL,
   `event_likes` int(11) DEFAULT NULL,
   `event_status` int(11) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event_info`
@@ -182,7 +182,20 @@ INSERT INTO `gallery_listing` (`id`, `user_name`, `posts`, `tag_name`, `image_pa
 (20, 'jashan12', 'this is first event with them, and i really enjoyed it', 'evnt', 'upload_gallery/mickey.jpg', '2020-03-20'),
 (21, 'jashan12', 'my sinderlla', '', 'upload_gallery/hero-canada-day.jpg', '2020-03-20'),
 (22, 'jashan12', 'this is mickey', 'disney', 'upload_gallery/mickey.jpg', '2020-03-20'),
-(23, 'jashan', 'this is nice', NULL, 'upload_gallery/mickey.jpg', '2020-03-02');
+(23, 'jashan', 'this is nice and cute', 'mickey', 'upload_gallery/mickey.jpg', '2020-03-02'),
+(24, 'jashan', 'this is first event with them, and i really enjoyed it', '', 'upload_gallery/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg', '2020-03-26'),
+(25, 'jashansandhu', 'this is me enjoying the evnet', 'yaehh', 'upload_gallery/pietra-schwarzler-FqdfVIdgR98-unsplash.jpg', '2020-03-31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guest_list`
+--
+
+CREATE TABLE `guest_list` (
+  `event_id` int(11) NOT NULL,
+  `friend_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -366,6 +379,13 @@ ALTER TABLE `gallery_listing`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `guest_list`
+--
+ALTER TABLE `guest_list`
+  ADD KEY `event_id` (`event_id`),
+  ADD KEY `friend_id` (`friend_id`);
+
+--
 -- Indexes for table `invitation_design`
 --
 ALTER TABLE `invitation_design`
@@ -452,7 +472,7 @@ ALTER TABLE `friends`
 -- AUTO_INCREMENT for table `gallery_listing`
 --
 ALTER TABLE `gallery_listing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `invitation_design`
@@ -500,6 +520,13 @@ ALTER TABLE `venue_list`
 ALTER TABLE `eventxservice`
   ADD CONSTRAINT `eventxservice_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_info` (`id`),
   ADD CONSTRAINT `eventxservice_ibfk_2` FOREIGN KEY (`service_id`) REFERENCES `event_service` (`id`);
+
+--
+-- Constraints for table `guest_list`
+--
+ALTER TABLE `guest_list`
+  ADD CONSTRAINT `guest_list_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_info` (`id`),
+  ADD CONSTRAINT `guest_list_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `friends` (`id`);
 
 --
 -- Constraints for table `invitation_design`
