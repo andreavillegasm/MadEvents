@@ -14,6 +14,7 @@ if(isset($_POST["submit"])){
     $userid = $_POST['user_id'];
     $title = $_POST['feedback_title'];
     $content = $_POST['feedback_content'];
+
     if($userid == ""){
         // should log in
         header("Location: login.php");
