@@ -1,4 +1,5 @@
 <?php
+include 'nav_header.php';
 $error="";
 if($_SESSION){
     require_once 'classes/Database.php';
@@ -39,7 +40,7 @@ else{
 </head>
 
 <body>
-<?php include "nav_header.php" ?>
+
 
 <main role="main">
 

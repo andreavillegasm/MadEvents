@@ -1,7 +1,7 @@
 <?php
 
 
-require_once 'database/Database.php';
+require_once 'classes/Database.php';
 require 'classes/Event.php';
 
 //Get the database connection
