@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2020 at 11:08 PM
+-- Generation Time: Mar 31, 2020 at 11:29 PM
 -- Server version: 10.3.22-MariaDB-log-cll-lve
 -- PHP Version: 7.3.6
 
@@ -193,6 +193,7 @@ INSERT INTO `gallery_listing` (`id`, `user_name`, `posts`, `tag_name`, `image_pa
 --
 
 CREATE TABLE `guest_list` (
+  `id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `friend_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -291,7 +292,8 @@ INSERT INTO `users` (`userid`, `username`, `email`, `password`) VALUES
 (6, 'jashansandhu', 'jazzosandhu12@gmail.com', '$2y$10$9uwksxKT67VXBjlEttFlDOqrOm/P2RC/zuoapYNiccpG269qWrUcC'),
 (7, 'jason123', 'jasoncwy@hotmail.com', '$2y$10$e4CIh2kJW.QK.pODzv88OOQWrU3l0D6xovFGYEpeiuZWdHwytvLrO'),
 (8, 'jasonchong', 'jason@hotmail.com', '$2y$10$4uANPX4Fzyje2ivyra7k4OZtENLgnPo4KyAydSFMi5AFV902yNRUO'),
-(9, 'jashan12', 'jazzosandhu12@gmail.com', '$2y$10$YgzRwmVSbVLdMsaIMcsvjuYZByL9gORt/GH7b8xlGci7B2cSCHrwi');
+(9, 'jashan12', 'jazzosandhu12@gmail.com', '$2y$10$YgzRwmVSbVLdMsaIMcsvjuYZByL9gORt/GH7b8xlGci7B2cSCHrwi'),
+(10, 'Nythia', 'nythia@test.com', '$2y$10$4QTWPihDhtofzkaFLW6xV.C1uA.ioV4IHxCTomSm34ngg3pLDZGga');
 
 -- --------------------------------------------------------
 
@@ -382,6 +384,7 @@ ALTER TABLE `gallery_listing`
 -- Indexes for table `guest_list`
 --
 ALTER TABLE `guest_list`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `event_id` (`event_id`),
   ADD KEY `friend_id` (`friend_id`);
 
@@ -475,6 +478,12 @@ ALTER TABLE `gallery_listing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT for table `guest_list`
+--
+ALTER TABLE `guest_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `invitation_design`
 --
 ALTER TABLE `invitation_design`
@@ -502,7 +511,7 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `venue_list`
