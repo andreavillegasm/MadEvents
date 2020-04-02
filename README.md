@@ -5,7 +5,7 @@ Our team will create an event planning web application that will help its users 
 
 livelink: https://jsandzz.tech/mad_event/
 
-Please find the database sql file on the Database folder 
+Please find the database sql file and the ERD screenshot on the Database folder 
 
 ## Gallery Feature - Jashanpreet Kaur
 1. Public gallery:
