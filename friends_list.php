@@ -1,5 +1,12 @@
 <?php
 require 'nav_header.php';
+require_once 'classes/Database.php';
+require_once 'classes/Guest.php';
+
+$dbconn = Database::getDb();
+$f = new Guest($dbconn);
+
+$friends = $f->listFriends();
 
 ?>
 
@@ -21,6 +28,7 @@ require 'nav_header.php';
     <div class="friend-container">
         <h1 class="main-title">List of Friends</h1>
     <!--    Displaying Data in Table-->
+        <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
         <table class="table">
         <thead>
         <tr>
@@ -33,34 +41,43 @@ require 'nav_header.php';
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($friends as $friend){ ?>
             <tr>
-                <th scope="row">Mariana Villegas Mayorga</th>
-                <td>mariana@villegas.com</td>
-                <td>132-555-8888</td>
+
+                <th scope="row"><?php echo $friend->friend_first_name. " ".$friend->friend_middle_name." ".$friend->friend_last_name?></th>
+                <td><?php echo $friend->friend_email ?></td>
+                <td><?php echo $friend->friend_phone ?></td>
                 <td>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value=""/>
+                        <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
+                        <input type="submit" class="btn btn-success" name="inviteFriend" value="Invite"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="friend_update.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
                         <input type="submit" class="btn btn-warning" name="updateFriend" value="Edit"/>
                     </form>
                 </td>
                 <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value=""/>
+                    <form action="friend_delete" method="post">
+                        <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
                         <input type="submit" class="btn btn-danger" name="deleteFriend" value="Delete"/>
                     </form>
                 </td>
-                <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value=""/>
-                        <input type="submit" class="btn btn-success" name="inviteFriend" value="Invite"/>
-                    </form>
-                </td>
+
             </tr>
+        <?php } ?>
         </tbody>
     </table>
-    <a href="AddFriend.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
+
     </div>
 </div>
 </main>
+<?
+//Adds the footer
+include 'nav_footer.php';
+
+?>
 </body>
 </html>

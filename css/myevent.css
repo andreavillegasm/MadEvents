@@ -123,5 +123,9 @@
 #close-button{
     width: 30%;
 }
+.back-link, .button-center{
+    text-align: center;
+}
+
 
 
