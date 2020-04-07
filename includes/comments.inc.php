@@ -5,7 +5,8 @@ require_once 'classes/Query.php';
 function addComments() {
     if (isset($_POST['commentSubmit'])) {
         // echo "TEST";
-        $uid = $_POST['username'];
+        $uid = $_SESSION['userId'];
+        $username = $_POST['username'];
         $date = $_POST['date'];
         $message = $_POST['message'];      
         
@@ -13,7 +14,7 @@ function addComments() {
         $cs = new Query($dbcon);
 
         if (isset($_SESSION['userId'])) {
-            $comments = $cs->setComments($uid, $date, $message);
+            $comments = $cs->setComments($uid, $username, $date, $message);
         } else {
             echo '<div class="alert alert-danger" role="alert">
                     Please Sign in to comment. <a href="login.php">Login</a>
