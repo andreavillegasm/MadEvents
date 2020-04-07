@@ -1,12 +1,12 @@
 <?php
-session_start();
+include "nav_header.php";
 if($_SESSION['username']){
     require_once 'classes/Database.php';
     require_once 'classes/Query.php';
     $dbcon = Database::getDb();
     $gallery_users = new Query($dbcon);
     $users= $gallery_users->admin_gallery();
-    $list = $gallery_users->public_gallery();
+    //var_dump($users);
     foreach($users as $user){
         if($user->username == $_SESSION['username']){
             $user_name = $user->username;
@@ -41,7 +41,7 @@ else{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<?php include "nav_header.php" ?>
+
 <nav>
     <div class="header-navigation" style="background-color:coral">
         <div class="header-nav-content">
@@ -65,8 +65,8 @@ else{
     <div class="album py-5 bg-light" style="background-image:url('upload_gallery/bk.jpg');">
         <div class="container" id="container">
             <div class="row" id="div_flex">
-                <?php foreach($list as $l){
-                    if($l->user_name == $_SESSION['username']){
+                <?php foreach($users as $l){
+                    if($l->username == $_SESSION['username']){
                     ?>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">

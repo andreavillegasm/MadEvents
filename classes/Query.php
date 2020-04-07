@@ -10,7 +10,8 @@ class Query
 
     public function public_gallery()
     {
-        $sql = "select * from gallery_listing";
+        $sql = "select * from gallery_listing join users 
+on users.userid = gallery_listing.userid";
 
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
@@ -19,7 +20,7 @@ class Query
     }
     public function admin_gallery()
     {
-        $sql = "select * from users";
+        $sql = "select * from gallery_listing join users on users.userid = gallery_listing.userid";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
         $gallery_users = $pdostm->fetchAll(PDO::FETCH_OBJ);

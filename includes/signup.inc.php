@@ -5,6 +5,7 @@ if (isset($_POST['signup'])) {
 
     require '../classes/Database.php';
     require '../classes/Query.php';
+    require '../mail_reminder/message.php';
 
 
     //fetching the items from the form
@@ -41,11 +42,39 @@ if (isset($_POST['signup'])) {
         header("Location: ../signup.php?error=matchpass&uid=" . $username . "&mail=" . $email);
         exit();
     } else {
-        $dbcon = Database::getDb();
+        //eamil part
+        //for welcome email
+        $to_address = $email;
+        $to_name = $username;
+        $from_address = 'eplanner470@gmail.com';
+        $from_name = 'Mad Event';
+        $subject = 'Registration Email';
+        $body = '<h1>Welcome to Mad Event</h1>'.
+            '<p>Thank you for registering with us. Hope we make all of your event the best.<br/>
 
+We do have lots of options to make your event great. Please have a look at our website.<br/>
+
+Regards, <br/>
+
+Mad_Event Team
+
+</p>';
+        $is_body_html = 'true';
+
+        try{
+            send_email($to_address, $to_name, $from_address, $from_name,$subject, $body, $is_body_html);
+        }catch(Exception $e){
+            header('mail_reminder/Location:Error_mail.php');
+        }
+
+        //db code
+        $dbcon = Database::getDb();
         $su = new Query($dbcon);
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $su->addUser($username, $email, $hash);
+
+
+
         header("Location: ../signup.php?signup=success");
         exit();
     }
