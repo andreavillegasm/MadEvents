@@ -1,32 +1,38 @@
 <?php
-require_once 'classes/Database.php';
-require_once 'classes/Event.php';
+session_start();
+if ($_SESSION['username']) {
+    require_once 'classes/Database.php';
+    require_once 'classes/Event.php';
 
+    $userid = $_SESSION['userid'];
 //Get the database connection
-$dbconn = Database::getDb();
-$ne = new Event($dbconn);
+    $dbconn = Database::getDb();
+    $ne = new Event($dbconn);
 
-$id=0;
+    //$id = 0;
 
 
-if(isset($_POST['viewEvent'])){
-    //Id of event that has been sent
-    $id = $_POST['id'];
+    if (isset($_POST['viewEvent'])) {
+        //Id of event that has been sent
+        $id = $_POST['id'];
 
-}
+    }
 
 //return a array with the information of that event
-$info = $ne->infoEvent($id);
+    $info = $ne->infoEvent($id);
 
 
 //If the close event is clicked
-if(isset($_POST['closeEvent'])){
+    if (isset($_POST['closeEvent'])) {
 
-    $closeid = $_POST['closeid'];
+        $closeid = $_POST['closeid'];
 
-    //closes the event
-    $ne->closeEvent($closeid);
+        //closes the event
+        $ne->closeEvent($closeid);
 
+    }
+} else {
+    header('Location:login.php');
 }
 
 

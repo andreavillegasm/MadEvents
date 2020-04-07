@@ -1,12 +1,19 @@
 <?php
-require 'nav_header.php';
-require_once 'classes/Database.php';
-require_once 'classes/Guest.php';
+session_start();
+if ($_SESSION['username']) {
+    require 'nav_header.php';
+    require_once 'classes/Database.php';
+    require_once 'classes/Guest.php';
 
-$dbconn = Database::getDb();
-$f = new Guest($dbconn);
+    $user_id = $_SESSION['userid'];
 
-$friends = $f->listFriends();
+    $dbconn = Database::getDb();
+    $f = new Guest($dbconn);
+
+    $friends = $f->listFriends($user_id);
+} else {
+    header('Location:login.php');
+}
 
 ?>
 

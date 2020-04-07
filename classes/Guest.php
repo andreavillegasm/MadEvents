@@ -10,10 +10,11 @@ class Guest
         $this->dbconn = $dbconn;
     }
     //LIST ALL THE FRIENDS THAT THE USER HAVE
-    public function listFriends(){
+    public function listFriends($user_id){
 
-        $sql = "SELECT * FROM friends";
+        $sql = "SELECT * FROM friends WHERE user_id = :user_id";
         $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->bindParam(':user_id', $user_id);
         $pdostm->execute();
 
         $friends = $pdostm->fetchAll(PDO::FETCH_OBJ);
@@ -21,13 +22,14 @@ class Guest
     }
 
     //Adding a friend
-    public function addFriend($fname, $fmiddle, $flast, $femail, $fphone){
-        $sql = "INSERT INTO friends (friend_first_name, friend_middle_name, friend_last_name, friend_email, friend_phone) values (:fname, :fmiddle, :flast, :femail, :fphone)";
+    public function addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone){
+        $sql = "INSERT INTO friends (user_id, friend_first_name, friend_middle_name, friend_last_name, friend_email, friend_phone) values (:user_id, :fname, :fmiddle, :flast, :femail, :fphone)";
 
         //Prepare
         $pdostm = $this->dbconn -> prepare($sql);
 
         //Bind
+        $pdostm->bindParam(':user_id', $user_id);
         $pdostm->bindParam(':fname', $fname);
         $pdostm->bindParam(':fmiddle', $fmiddle);
         $pdostm->bindParam(':flast', $flast);
