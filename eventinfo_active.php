@@ -89,7 +89,7 @@ include 'nav_header.php';
                     <img src="img/user-friends-solid.svg" alt="friends icon" class="imginfo-icons">
                     <h3>Guest List</h3>
                     <p>Invite your friends via email</p>
-                    <button class="btn btn-info">Invite</button>
+                    <a class="btn btn-info" href="friends_list.php">Invite</a>
                 </div>
                 <!-- Design invitation container-->
                 <div class="col" id="design-invitation-container">

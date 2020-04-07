@@ -40,11 +40,12 @@ include 'nav_header.php';
             <h1 class="jumbotron-heading">My Events</h1>
             <p class="lead text-muted">Have something exciting planned?</p>
         </div>
+        <div class="new-event-button">
+            <a href="new_event.php" id="btn_addEvent" class="btn btn-info">New Event</a>
+        </div>
     </section>
     <div class="container">
-        <div class="new-event-button">
-         <a href="new_event.php" id="btn_addEvent" class="btn btn-info">New Event</a>
-        </div>
+
         <!-- List of active events -->
         <div>Active Events
             <div class="row">
