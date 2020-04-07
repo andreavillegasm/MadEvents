@@ -1,6 +1,12 @@
 <?php
 require_once 'classes/Database.php';
 require_once 'classes/Event.php';
+require_once 'classes/Query.php';
+
+include 'includes/comments.inc.php';
+
+//for the comment section
+date_default_timezone_set('Canada/Eastern');
 
 //Get the database connection
 $dbconn = Database::getDb();
@@ -92,74 +98,31 @@ include 'nav_header.php';
     </div>
 
     <!-- Comment and Rating Section -->
-    <div class="container">
-        <form action="">
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="comment">Write a comment and a review</label>
-
-                    <div class="col-lg-12">
-                        <div class="star-rating">
-                            <span class="fa fa-star-o" data-rating="1"></span>
-                            <span class="fa fa-star-o" data-rating="2"></span>
-                            <span class="fa fa-star-o" data-rating="3"></span>
-                            <span class="fa fa-star-o" data-rating="4"></span>
-                            <span class="fa fa-star-o" data-rating="5"></span>
-                            <input type="hidden" name="whatever1" class="rating-value" value="0">
-                        </div>
-                    </div>
-                    <textarea class="form-control" id="comment" rows="3" placeholder="write a comment..."></textarea>
+    <div class='container'>
+    <?php
+        echo "<form method='POST' action='".addComments()."'>
+            <div class='form-group'>
+                <div class='form-group'>
+                    <label for='comment'>Write a comment</label>
+                    <input type='hidden' name='username' value='".(isset($_SESSION['userId']) ? $_SESSION['username'] : "")."'>
+                    <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                    <textarea name='message' class='form-control' id='comment' rows='3' placeholder='write a comment...'></textarea>
                 </div>
-                <button style="width: 10%;" type="submit" class="btn btn-info">Submit</button>
+                <button style='width: 10%;' name='commentSubmit' type='submit' class='btn btn-info'>Comment</button>
             </div>
-        </form>
-
+        </form>";
+    ?>
 
 
         <hr class="my-4">
 
         <ul class="comment-section">
-
-            <li class="comment">
-                <div class="comment-section-body">
-                    <strong class="text-success">Jason Chong</strong>
-                    <span class="text-muted pull-right">
-                        <small class="text-muted">30 min ago</small>
-                    </span>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet</a>.
-                    </p>
-                </div>
-            </li>
-
-            <li class="comment">
-                <div class="comment-section-body">
-                    <strong class="text-success">Timothy Zhang</strong>
-                    <span class="text-muted pull-right">
-                        <small class="text-muted">3 min ago</small>
-                    </span>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet</a>.
-                    </p>
-                </div>
-            </li>
-
-            <li class="comment">
-                <div class="comment-section-body">
-                    <strong class="text-success">John Hefner</strong>
-                    <span class="text-muted pull-right">
-                        <small class="text-muted">1 hour ago</small>
-                    </span>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet</a>.
-                    </p>
-                </div>
-            </li>
+            <?php
+                showCommments();
+            ?>
         </ul>
 
     </div>
 
 </main>
+

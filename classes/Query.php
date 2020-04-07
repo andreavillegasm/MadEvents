@@ -65,6 +65,7 @@ class Query
         return $count;
     }
 
+    //---------------For Login System---------------
     public function getUsers($username, $email)
     {
         $sql = "SELECT * FROM users WHERE username= :username or email= :email";
@@ -76,7 +77,6 @@ class Query
         return $values;
     }
 
-
     public function addUser($username, $email, $password)
     {
         $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
@@ -86,5 +86,23 @@ class Query
         $pdostm->bindParam(':password', $password);
         $count = $pdostm->execute();
         return $count;
+    }
+    //---------------For Comment System---------------
+    public function setComments($username, $date, $message) {
+        $sql = "INSERT INTO comments (username, date_create, message) VALUES (:username, :date_create, :message);";
+        $pdostm = $this->dbcon->prepare($sql);
+        $pdostm->bindParam(':username', $username);
+        $pdostm->bindParam(':date_create', $date);
+        $pdostm->bindParam(':message', $message);
+        $count = $pdostm->execute();
+        return $count;
+    }
+
+    public function getComments() {
+        $sql = "SELECT * FROM comments order by date_create DESC";
+        $pdostm = $this->dbcon->prepare($sql);
+        $pdostm->execute();
+        $values = $pdostm->fetchAll();
+        return $values;
     }
 }
