@@ -7,6 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 
+
 function send_email($to_address, $to_name, $from_address, $from_name,
                     $subject, $body, $is_body_html = false) {
     if (!valid_email($to_address)) {
@@ -18,16 +19,17 @@ function send_email($to_address, $to_name, $from_address, $from_name,
             htmlspecialchars($from_address));
     }
 
+
     $mail = new PHPMailer();
     // **** You must change the following to match your
     // **** SMTP server and account information.
     $mail->isSMTP();                             // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';              // Set SMTP server
+    $mail->Host = 'tls://smtp.gmail.com';              // Set SMTP server
     $mail->SMTPSecure = 'tls';                   // Set encryption type
     $mail->Port = 587;                           // Set TCP port
     $mail->SMTPAuth = true;                      // Enable SMTP authentication
     $mail->Username = 'eplanner470@gmail.com'; // Set SMTP username
-    $mail->Password = 'EventPlanner12@';           // Set SMTP password
+    $mail->Password = 'JashanSandhu12@';           // Set SMTP password
     $mail->SMTPOptions = array(
         'ssl' => array(
             'verify_peer' => false,

@@ -6,12 +6,15 @@ Class Email{
     {
         $this->dbcon = $dbcon;
     }
-    public function user_email(){
-        $sql = "select * from users";
+    public function emails(){
+        $sql = "select * from guest_list join event_info
+                    on event_info.id = guest_list.event_id
+                    join friends
+                    on friends.id = guest_list.friend_id";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
-        $email = $pdostm->fetchAll(PDO::FETCH_OBJ);
-        return $email;
+        $mails = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $mails;
     }
 }
 

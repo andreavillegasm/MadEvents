@@ -5,11 +5,13 @@ if (isset($_POST['signup'])) {
 
     require 'database.php';
 
+
     //fetching the items from the form
     $username = $_POST['uid'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $c_password = $_POST['c_password'];
+
 
     //check if the fields are empty
     if (empty($username) || empty($email) || empty($password) || empty($c_password)) {

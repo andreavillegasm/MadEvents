@@ -5,7 +5,7 @@ class Database
 {
 
     private static $username = 'root';
-    private static $password = '';
+    private static $password = 'root';
     private static $dsn = 'mysql:host=localhost;dbname=mad_event';
 //    private static $dsn = 'mysql:host=localhost;dbname=madevents';
 
