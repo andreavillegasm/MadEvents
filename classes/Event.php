@@ -21,9 +21,10 @@ class Event
     }
 
     //LIST ALL EVENTS THAT ARE ACTIVE
-    public function listActiveEvents(){
-        $sql = "SELECT * FROM event_info WHERE event_status = '1' ORDER BY id DESC";
+    public function listActiveEvents($id){
+        $sql = "SELECT * FROM event_info WHERE event_status = '1' AND user_id = :id ORDER BY id DESC";
         $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->bindParam(':id', $id);
         $pdostm->execute();
 
         $events = $pdostm->fetchAll(PDO::FETCH_OBJ);
@@ -32,9 +33,10 @@ class Event
     }
 
     //LIST OF ALL EVENTS THAT ARE CLOSED
-    public function listPastEvents(){
-        $sql = "SELECT * FROM event_info WHERE event_status = '0' ORDER BY event_date DESC";
+    public function listPastEvents($id){
+        $sql = "SELECT * FROM event_info WHERE event_status = '0' AND user_id = :id  ORDER BY event_date DESC";
         $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->bindParam(':id', $id);
         $pdostm->execute();
 
         $events = $pdostm->fetchAll(PDO::FETCH_OBJ);
@@ -43,13 +45,14 @@ class Event
     }
 
     //ADDING A NEW EVENT INTO THE DATABASE
-    public function addEvent($evname, $evlocation, $evdate, $evtime){
-        $sql = "INSERT INTO event_info (event_name, venue_id, event_date, event_time) values (:event_name, :venue_id, :event_date, :event_time)";
+    public function addEvent($user_id, $evname, $evlocation, $evdate, $evtime){
+        $sql = "INSERT INTO event_info (user_id, event_name, venue_id, event_date, event_time) values (:user_id, :event_name, :venue_id, :event_date, :event_time)";
 
         //Prepare
         $pdostm = $this->dbconn -> prepare($sql);
 
         //Bind
+        $pdostm->bindParam(':user_id', $user_id);
         $pdostm->bindParam(':event_name', $evname);
         $pdostm->bindParam(':venue_id', $evlocation);
         $pdostm->bindParam(':event_date', $evdate);

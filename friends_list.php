@@ -1,12 +1,19 @@
 <?php
-require 'nav_header.php';
-require_once 'classes/Database.php';
-require_once 'classes/Guest.php';
+session_start();
+if ($_SESSION['username']) {
+    require 'nav_header.php';
+    require_once 'classes/Database.php';
+    require_once 'classes/Guest.php';
 
-$dbconn = Database::getDb();
-$f = new Guest($dbconn);
+    $user_id = $_SESSION['userid'];
 
-$friends = $f->listFriends();
+    $dbconn = Database::getDb();
+    $f = new Guest($dbconn);
+
+    $friends = $f->listFriends($user_id);
+} else {
+    header('Location:login.php');
+}
 
 ?>
 
@@ -28,7 +35,9 @@ $friends = $f->listFriends();
     <div class="friend-container">
         <h1 class="main-title">List of Friends</h1>
     <!--    Displaying Data in Table-->
-        <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
+        <div class="button-center">
+            <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
+        </div>
         <table class="table">
         <thead>
         <tr>
@@ -60,7 +69,7 @@ $friends = $f->listFriends();
                     </form>
                 </td>
                 <td>
-                    <form action="friend_delete" method="post">
+                    <form action="friend_delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
                         <input type="submit" class="btn btn-danger" name="deleteFriend" value="Delete"/>
                     </form>

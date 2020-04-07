@@ -43,3 +43,8 @@ The user can log out by going to the home page (index.php) and clicking sign out
 1. Add feedback: Users can add their feedback at the feedback.php page.
 2. View feedback: Users can view their own feedback at the feedback.php page.
 
+## Comment System - Jason
+1. User have to login before being able to sign in.
+2. Head over a past event (eventinfo_past.php)
+3. Comment and Submit.
+
