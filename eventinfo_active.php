@@ -6,15 +6,19 @@ require_once 'classes/Event.php';
 $dbconn = Database::getDb();
 $ne = new Event($dbconn);
 
+$id=0;
+
 
 if(isset($_POST['viewEvent'])){
     //Id of event that has been sent
     $id = $_POST['id'];
 
-    //return a array with the information of that event
-    $info = $ne->infoEvent($id);
-
 }
+
+//return a array with the information of that event
+$info = $ne->infoEvent($id);
+
+
 //If the close event is clicked
 if(isset($_POST['closeEvent'])){
 

@@ -28,7 +28,9 @@ $friends = $f->listFriends();
     <div class="friend-container">
         <h1 class="main-title">List of Friends</h1>
     <!--    Displaying Data in Table-->
-        <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
+        <div class="button-center">
+            <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
+        </div>
         <table class="table">
         <thead>
         <tr>
@@ -60,7 +62,7 @@ $friends = $f->listFriends();
                     </form>
                 </td>
                 <td>
-                    <form action="friend_delete" method="post">
+                    <form action="friend_delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
                         <input type="submit" class="btn btn-danger" name="deleteFriend" value="Delete"/>
                     </form>

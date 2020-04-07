@@ -20,6 +20,29 @@ class Guest
         return $friends;
     }
 
+    //Adding a friend
+    public function addFriend($fname, $fmiddle, $flast, $femail, $fphone){
+        $sql = "INSERT INTO friends (friend_first_name, friend_middle_name, friend_last_name, friend_email, friend_phone) values (:fname, :fmiddle, :flast, :femail, :fphone)";
+
+        //Prepare
+        $pdostm = $this->dbconn -> prepare($sql);
+
+        //Bind
+        $pdostm->bindParam(':fname', $fname);
+        $pdostm->bindParam(':fmiddle', $fmiddle);
+        $pdostm->bindParam(':flast', $flast);
+        $pdostm->bindParam(':femail', $femail);
+        $pdostm->bindParam(':fphone', $fphone);
+
+        //Execute
+        $numRowsAffected = $pdostm->execute();
+        if($numRowsAffected){
+            header("Location: friends_list.php");
+        } else {
+            echo 'a problem occurred inserting your friend';
+        }
+    }
+
 
     //This method grabs the values from the database to display on the update page
     public function updateInfo($id){
@@ -66,6 +89,21 @@ class Guest
             echo "problem updating a friend's information";
         }
 
+    }
+    public  function deleteFriend($id){
+
+        //Receives id and deletes friend based on that
+        $sql = "DELETE FROM friends WHERE id = :id";
+
+        $pdostm = $this ->dbconn -> prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $numRowsAffected = $pdostm->execute();
+
+        if($numRowsAffected){
+            header('Location: friends_list.php');
+        } else{
+            echo "problem deleting a Friend";
+        }
     }
 
 }
