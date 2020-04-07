@@ -42,6 +42,7 @@ function send_email($to_address, $to_name, $from_address, $from_name,
     $mail->addAddress($to_address, $to_name);
     $mail->Subject = $subject;
     $mail->Body = $body;                  // Body with HTML
+    $mail->AddEmbeddedImage('welcome.jpg','welcomeimage','welcome.jpg');
     $mail->AltBody = strip_tags($body);   // Body without HTML
     if ($is_body_html) {
         $mail->isHTML(true);              // Enable HTML

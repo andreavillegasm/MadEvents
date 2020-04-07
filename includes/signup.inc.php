@@ -50,11 +50,11 @@ if (isset($_POST['signup'])) {
         $from_name = 'Mad Event';
         $subject = 'Registration Email';
         $body = '<h1>Welcome to Mad Event</h1>'.
-            '<p>Thank you for registering with us. Hope we make all of your event the best.<br/>
+            '<h3>Thank you for registering with us. Hope we can make your every event special.</h3><br/>
 
-We do have lots of options to make your event great. Please have a look at our website.<br/>
+<p style="text-align: center">You now have access to the most complete Event development environment. Mad Event allows you to organize your event, invite your friends, upload your pictures and many more.</p> <br/>
 
-Regards, <br/>
+<p>Regards, <br/>
 
 Mad_Event Team
 
