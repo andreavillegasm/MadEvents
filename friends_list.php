@@ -11,6 +11,14 @@ if ($_SESSION['username']) {
     $f = new Guest($dbconn);
 
     $friends = $f->listFriends($user_id);
+
+    if (isset($_POST['inviteFriends'])) {
+
+        //Id of event that has been sent
+        $event_id = $_POST['id'];
+
+    }
+
 } else {
     header('Location:login.php');
 }
@@ -57,9 +65,10 @@ if ($_SESSION['username']) {
                 <td><?php echo $friend->friend_email ?></td>
                 <td><?php echo $friend->friend_phone ?></td>
                 <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
-                        <input type="submit" class="btn btn-success" name="inviteFriend" value="Invite"/>
+                    <form action="invite_mail.php" method="post">
+                        <input type="hidden" name="fid" value="<?php echo $friend->id?>"/>
+                        <input type="hidden" name="eid" value="<?php echo $event_id?>"/>
+                        <input type="submit" class="btn btn-success" name="addGuest" value="Invite"/>
                     </form>
                 </td>
                 <td>
@@ -71,6 +80,7 @@ if ($_SESSION['username']) {
                 <td>
                     <form action="friend_delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
+
                         <input type="submit" class="btn btn-danger" name="deleteFriend" value="Delete"/>
                     </form>
                 </td>

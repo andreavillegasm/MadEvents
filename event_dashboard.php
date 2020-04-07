@@ -1,6 +1,10 @@
 <?php
-//Start Session
-session_start();
+
+//The Header Nav Bar
+include 'nav_header.php';
+
+
+//session_start();
 echo $_SESSION['username'];
 
 //Checked if user is signed in
@@ -53,12 +57,6 @@ if ($_SESSION['username']){
 
 <body>
 
-<?php
-
-//The Header Nav Bar
-include 'nav_header.php';
-
-?>
 
 <main class="myevents-main" style="background-color: white">
     <section class="jumbotron text-center" style="background-image: url('img/header_bg.jpg')">

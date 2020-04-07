@@ -1,5 +1,8 @@
 <?php
-session_start();
+//The Header Nav Bar
+include 'nav_header.php';
+
+//session_start();
 if ($_SESSION['username']) {
     require_once 'classes/Database.php';
     require_once 'classes/Event.php';
@@ -53,12 +56,6 @@ if ($_SESSION['username']) {
 
 <body>
 
-<?php
-
-//The Header Nav Bar
-include 'nav_header.php';
-
-?>
 <main class="myevents-main" style="background-color: white">
     <!-- Top Section that has event information -->
     <section class="jumbotron text-center" style="background-image: url('img/header-event-info.jpg')">
@@ -99,7 +96,10 @@ include 'nav_header.php';
                     <img src="img/user-friends-solid.svg" alt="friends icon" class="imginfo-icons">
                     <h3>Guest List</h3>
                     <p>Invite your friends via email</p>
-                    <a class="btn btn-info" href="friends_list.php">Invite</a>
+                    <form action="friends_list.php" method="post"  >
+                        <input type="hidden" name="id" value="<?= $id; ?>" />
+                        <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends">Invite</button>
+                    </form>
                 </div>
                 <!-- Design invitation container-->
                 <div class="col" id="design-invitation-container">

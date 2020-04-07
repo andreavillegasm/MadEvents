@@ -108,4 +108,25 @@ class Guest
         }
     }
 
+    //Adding a friend
+    public function addGuest($event_id, $friend_id){
+        $sql = "INSERT INTO guest_list (event_id, friend_id) values (:event_id, :friend_id)";
+
+        //Prepare
+        $pdostm = $this->dbconn -> prepare($sql);
+
+        //Bind
+        $pdostm->bindParam(':event_id', $event_id);
+        $pdostm->bindParam(':friend_id', $friend_id);
+
+
+        //Execute
+        $numRowsAffected = $pdostm->execute();
+        if($numRowsAffected){
+            header("Location: friends_list.php");
+        } else {
+            echo 'a problem occurred adding your guest';
+        }
+    }
+
 }
