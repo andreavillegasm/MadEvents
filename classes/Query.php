@@ -88,9 +88,10 @@ class Query
         return $count;
     }
     //---------------For Comment System---------------
-    public function setComments($username, $date, $message) {
-        $sql = "INSERT INTO comments (username, date_create, message) VALUES (:username, :date_create, :message);";
+    public function setComments($userid, $username, $date, $message) {
+        $sql = "INSERT INTO comments (userid, username, date_create, message) VALUES (:userid, :username, :date_create, :message);";
         $pdostm = $this->dbcon->prepare($sql);
+        $pdostm->bindParam(':userid', $userid);
         $pdostm->bindParam(':username', $username);
         $pdostm->bindParam(':date_create', $date);
         $pdostm->bindParam(':message', $message);

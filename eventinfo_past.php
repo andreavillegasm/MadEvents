@@ -104,6 +104,7 @@ include 'nav_header.php';
             <div class='form-group'>
                 <div class='form-group'>
                     <label for='comment'>Write a comment</label>
+                    <input type='hidden' name='userid' value='".(isset($_SESSION['userId']) ? $_SESSION['userId'] : "")."'>
                     <input type='hidden' name='username' value='".(isset($_SESSION['userId']) ? $_SESSION['username'] : "")."'>
                     <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
                     <textarea name='message' class='form-control' id='comment' rows='3' placeholder='write a comment...'></textarea>
