@@ -17,9 +17,10 @@ if($_SESSION['username']){
     //Grab all the users and id
     $users =  $u->user_email();
     foreach ($users as $user){
-        if($user->username = $_SESSION['username']){
+        if($user->username == $_SESSION['username']){
             //Grab me the id of the person logged in
             $user_id = $user->userid;
+            //$_SESSION['userid'] = $user_id;
         }
     }
     echo $user_id;
@@ -45,6 +46,7 @@ if($_SESSION['username']){
         if($evname == "" || $evdate < date('Y-m-d') || $evlocation == ""){
             echo "Please review errors displayed on the screen";
         } else{
+            echo $user_id;
             $ne->addEvent($user_id, $evname, $evlocation, $evdate, $evtime);
         }
 

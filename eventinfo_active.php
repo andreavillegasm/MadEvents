@@ -6,23 +6,29 @@ include 'nav_header.php';
 if ($_SESSION['username']) {
     require_once 'classes/Database.php';
     require_once 'classes/Event.php';
+    require_once 'classes/Guest.php';
 
     $userid = $_SESSION['userid'];
 //Get the database connection
     $dbconn = Database::getDb();
     $ne = new Event($dbconn);
+    $g = new Guest($dbconn);
 
     //$id = 0;
 
 
     if (isset($_POST['viewEvent'])) {
+
         //Id of event that has been sent
         $id = $_POST['id'];
 
     }
 
-//return a array with the information of that event
+    //return a array with the information of that event
     $info = $ne->infoEvent($id);
+
+    // return an array with the guests from that event
+    $guests = $g->listGuests($id);
 
 
 //If the close event is clicked
@@ -95,18 +101,18 @@ if ($_SESSION['username']) {
                 <div class="col" id="guest-list-container">
                     <img src="img/user-friends-solid.svg" alt="friends icon" class="imginfo-icons">
                     <h3>Guest List</h3>
-                    <p>Invite your friends via email</p>
+                    <p>Invite your friends via email, select invite and select who to invite from your Friend's list</p>
                     <form action="friends_list.php" method="post"  >
                         <input type="hidden" name="id" value="<?= $id; ?>" />
-                        <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends">Invite</button>
+                        <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends"> Invite</button>
                     </form>
-                </div>
-                <!-- Design invitation container-->
-                <div class="col" id="design-invitation-container">
-                    <img src="img/palette-solid.svg" alt="friends icon" class="imginfo-icons">
-                    <h3>Design Invitation</h3>
-                    <p>Design your own beautiful invitation</p>
-                    <button class="btn btn-info">Create</button>
+                    <ul class="list-group" id="guest-list-design">
+                        <?php
+                        foreach ($guests as $guest){ ?>
+                        <li class="list-group-item"><?php echo $guest->friend_first_name. ' '.$guest->friend_middle_name .' '.$guest->friend_last_name ?></li>
+                        <?php }
+                        ?>
+                    </ul>
                 </div>
             </div>
             <div class="close-event">

@@ -5,7 +5,7 @@ include 'nav_header.php';
 
 
 //session_start();
-echo $_SESSION['username'];
+//echo $_SESSION['username'];
 
 //Checked if user is signed in
 
@@ -25,7 +25,7 @@ if ($_SESSION['username']){
         if($user->username == $_SESSION['username']){
             $id = $user->userid;
             $_SESSION['userid'] = $id;
-            echo $_SESSION['userid'];
+            //echo $_SESSION['userid'];
         }
     }
 
