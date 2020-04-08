@@ -58,61 +58,15 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         //Execute
         $numRowsAffected = $pdostm->execute();
         if($numRowsAffected){
-            header("Location: reservation.php");
+
+            $url = "reservation.php";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+//            header("Location: reservation.php");
         } else {
             echo 'a problem occurred when booking';
         }
-    }
-
-    //GETTING THE INFORMATION OF AN EVENT
-    public function infoEvent($id){
-        $sql = "SELECT * FROM event_info
-        join venue_list
-        on event_info.venue_id = venue_list.id 
-        where event_info.id = :id";
-        $pst = $this ->dbconn->prepare($sql);
-        $pst->bindParam(':id', $id);
-        $pst->execute();
-        $event = $pst->fetch(PDO::FETCH_OBJ);
-
-        $name = $event->event_name;
-        $date = $event->event_date;
-        $time = $event->event_time;
-        $location = $event->name;
-
-        $evalues = [$name, $date, $time, $location];
-
-        return  $evalues;
-
-
-    }
-
-    //UPDATING AN EVENT
-    public function updateEvent($name, $date, $time, $location, $id){
-        $sql = "Update event_info
-                set event_name = :name,
-                event_date = :date,
-                event_time = :time,
-                venue_id = :location
-                WHERE id = :id
-        
-        ";
-
-        $pst =   $this -> dbconn->prepare($sql);
-
-        $pst->bindParam(':name', $name);
-        $pst->bindParam(':date', $date);
-        $pst->bindParam(':time', $time);
-        $pst->bindParam(':location', $location);
-        $pst->bindParam(':id', $id);
-
-        $count = $pst->execute();
-        if($count){
-            header("Location: event_dashboard.php");
-        } else {
-            echo "problem updating event information";
-        }
-
     }
 
     //DELETE EVENT
@@ -126,7 +80,12 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         $numRowsAffected = $pdostm->execute();
 
         if($numRowsAffected){
-            header('Location: reservation.php');
+
+            $url = "reservation.php";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+//            header('Location: reservation.php');
         } else{
             echo "problem deleting a reservation";
         }
