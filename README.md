@@ -57,10 +57,13 @@ It’s for those users or guests who are going to attend a event. This feature w
 ## Invite Friends - Andrea Villegas Mayorga
  1. See friends list:
 Users can see their friends list by going to the eventinfo_active page of the event they wish to invite their friends to. Once on that page they click on the button inivite, and are redirected to their friends list.
+
 2.Invite Friend:
 Users can select on the button invite next to any of the friends on the list, and the friend will be added to the guest list as well as receive an email invitation for the event.
+
 3.Add a friend:
 Users can add a friend to their friends list if they wish to add someone new to invite and keep on record for future events.
+
 4.Edit and Delete Friend
 Users can edit the information regarding a particular friend, as well as delete a friend from the friends list.
 
