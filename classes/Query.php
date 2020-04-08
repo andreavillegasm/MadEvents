@@ -10,7 +10,8 @@ class Query
 
     public function public_gallery()
     {
-        $sql = "select * from gallery_listing";
+        $sql = "select * from gallery_listing join users
+on users.userid = gallery_listing.userid";
 
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
@@ -19,7 +20,7 @@ class Query
     }
     public function admin_gallery()
     {
-        $sql = "select * from users";
+        $sql = "select * from gallery_listing join users on users.userid = gallery_listing.userid";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
         $gallery_users = $pdostm->fetchAll(PDO::FETCH_OBJ);
@@ -77,18 +78,21 @@ class Query
         return $values;
     }
 
-    public function addUser($username, $email, $password)
+    public function addUser($username, $firstname, $lastname, $email, $password)
     {
-        $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+        $sql = "INSERT INTO users (username, firstname, lastname, email, password) VALUES (:username, :firstname, :lastname, :email, :password)";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->bindParam(':username', $username);
+        $pdostm->bindParam(':firstname', $firstname);
+        $pdostm->bindParam(':lastname', $lastname);
         $pdostm->bindParam(':email', $email);
         $pdostm->bindParam(':password', $password);
         $count = $pdostm->execute();
         return $count;
     }
     //---------------For Comment System---------------
-    public function setComments($userid, $username, $date, $message) {
+    public function setComments($userid, $username, $date, $message)
+    {
         $sql = "INSERT INTO comments (userid, username, date_create, message) VALUES (:userid, :username, :date_create, :message);";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->bindParam(':userid', $userid);
@@ -99,7 +103,8 @@ class Query
         return $count;
     }
 
-    public function getComments() {
+    public function getComments()
+    {
         $sql = "SELECT * FROM comments order by date_create DESC";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();

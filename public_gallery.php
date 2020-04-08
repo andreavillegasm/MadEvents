@@ -34,7 +34,7 @@ $list = $gallery->public_gallery();
                                 <div class="btn-group">
                                     <form action="">
                                         <input type="hidden" name="id" value="<?= $l->id;?>"/>
-                                        <input type="submit" name="username" style="color:white" value="<?= $l->user_name; ?>" class="btn btn-sm-outline-secondary" />
+                                        <input type="submit" name="username" style="color:white" value="<?= $l->username; ?>" class="btn btn-sm-outline-secondary" />
                                     </form>
                                 </div>
                                 <small class="text-muted" style="color:white"><?= $l->post_date; ?></small>

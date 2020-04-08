@@ -1,16 +1,46 @@
 <?php
-require_once 'classes/Database.php';
-require_once 'classes/Event.php';
+
+//The Header Nav Bar
+include 'nav_header.php';
+
+
+//session_start();
+echo $_SESSION['username'];
+
+//Checked if user is signed in
+
+if ($_SESSION['username']){
+    require_once 'classes/Database.php';
+    require_once 'classes/Event.php';
+    require_once 'classes/Users.php';
 
 //GET THE DATABASE CONNECTION
-$dbconn = Database::getDb();
-$ne = new Event($dbconn);
+    $dbconn = Database::getDb();
+    $ne = new Event($dbconn);
+    $u = new Users($dbconn);
+
+    //Grab all the users and id
+    $users =  $u->user_email();
+    foreach ($users as $user){
+        if($user->username == $_SESSION['username']){
+            $id = $user->userid;
+            $_SESSION['userid'] = $id;
+            echo $_SESSION['userid'];
+        }
+    }
 
 //Get all the active events
-$active = $ne->listActiveEvents();
+    $active = $ne->listActiveEvents($id);
 
 //Get all the past events
-$past = $ne->listPastEvents();
+    $past = $ne->listPastEvents($id);
+
+} else {
+
+    header('Location:login.php');
+}
+
+
 
 ?>
 
@@ -27,12 +57,6 @@ $past = $ne->listPastEvents();
 
 <body>
 
-<?php
-
-//The Header Nav Bar
-include 'nav_header.php';
-
-?>
 
 <main class="myevents-main" style="background-color: white">
     <section class="jumbotron text-center" style="background-image: url('img/header_bg.jpg')">

@@ -1,69 +1,79 @@
 <?php
-require_once 'classes/Database.php';
-require_once 'classes/Guest.php';
+session_start();
+if ($_SESSION['username']) {
+    require_once 'classes/Database.php';
+    require_once 'classes/Guest.php';
 
 //Get the database connection
-$dbconn = Database::getDb();
-$f = new Guest($dbconn);
+    $dbconn = Database::getDb();
+    $f = new Guest($dbconn);
+    $user_id = $_SESSION['userid'];
 
 
 //Declare variables that will hold the values
-$fname = $fmiddle = $flast = $femail = $fphone =  "";
+    $fname = $fmiddle = $flast = $femail = $fphone = "";
 
 //CHECK TO SEE IF FORM IS SUBMITTED
-if (isset($_POST['AddFriend'])){
+    if (isset($_POST['AddFriend'])) {
 
 
-    //GET DATA FROM FORM
-    $fname = $_POST['FriendName'];
-    $fmiddle = $_POST['FriendMiddle'];
-    $flast = $_POST['FriendLast'];
-    $femail = $_POST['FriendEmail'];
-    $fphone = $_POST['FriendPhone'];
+        //GET DATA FROM FORM
+        $fname = $_POST['FriendName'];
+        $fmiddle = $_POST['FriendMiddle'];
+        $flast = $_POST['FriendLast'];
+        $femail = $_POST['FriendEmail'];
+        $fphone = $_POST['FriendPhone'];
 
-    //Ensure some inputs are restricted such as a  no name event or an old date
-    if($fname == "" || $flast == "" || $femail == ""){
-        echo "Please review errors displayed on the screen";
-    } else{
-        $f->addFriend($fname, $fmiddle, $flast, $femail, $fphone);
+        //Ensure some inputs are restricted such as a  no name event or an old date
+        if ($fname == "" || $flast == "" || $femail == "") {
+            echo "Please review errors displayed on the screen";
+        } else {
+            $f->addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone);
+        }
+
+
     }
 
-
-
-}
 
 //Error Messages displayed to guide users to what they are missing
-function checkEmpty($input){
-    $errmessage ="";
-    if($input == ""){
-        $errmessage = "Please input the required information";
-    }
-    return $errmessage;
-}
-function checkEmail($input){
-    $errmessage ="";
-    global $count;
-    if($input == "") {
-        $errmessage = "Please input the required information";
-    } else if(!filter_var($input, FILTER_VALIDATE_EMAIL)){
-        $errmessage = "Please enter a valid email";
-    }
-    return $errmessage;
-}
-function checkPhone($input){
-    $phoneval = "/[0-9]{10}/";
-    $errmessage ="";
-    //Only check this condition if the field is not empty
-    if($input != ""){
-        if(! preg_match($phoneval, $input)){
-            $errmessage = "Please enter a valid number";
+    function checkEmpty($input)
+    {
+        $errmessage = "";
+        if ($input == "") {
+            $errmessage = "Please input the required information";
         }
+        return $errmessage;
     }
-    return $errmessage;
+
+    function checkEmail($input)
+    {
+        $errmessage = "";
+        global $count;
+        if ($input == "") {
+            $errmessage = "Please input the required information";
+        } else if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
+            $errmessage = "Please enter a valid email";
+        }
+        return $errmessage;
+    }
+
+    function checkPhone($input)
+    {
+        $phoneval = "/[0-9]{10}/";
+        $errmessage = "";
+        //Only check this condition if the field is not empty
+        if ($input != "") {
+            if (!preg_match($phoneval, $input)) {
+                $errmessage = "Please enter a valid number";
+            }
+        }
+        return $errmessage;
+    }
+
+
+} else {
+    header('Location:login.php');
 }
-
-
-
 
 ?>
 <!DOCTYPE html>

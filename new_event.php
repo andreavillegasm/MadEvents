@@ -1,64 +1,87 @@
 <?php
- require_once 'classes/Database.php';
- require_once 'classes/Event.php';
+
+session_start();
+if($_SESSION['username']){
+    require_once 'classes/Database.php';
+    require_once 'classes/Event.php';
+    require_once 'classes/Users.php';
 
 //Get the database connection
-$dbconn = Database::getDb();
-$ne = new Event($dbconn);
+    $dbconn = Database::getDb();
+    $ne = new Event($dbconn);
+    $u = new Users($dbconn);
 
 //Get all the venues
-$venues = $ne->listVenues();
+    $venues = $ne->listVenues();
+
+    //Grab all the users and id
+    $users =  $u->user_email();
+    foreach ($users as $user){
+        if($user->username = $_SESSION['username']){
+            //Grab me the id of the person logged in
+            $user_id = $user->userid;
+        }
+    }
+    echo $user_id;
 
 //Declare variables that will hold the values
-$evname = $evlocation = $evdate = $evtime = "";
-$errors="";
+    $evname = $evlocation = $evdate = $evtime = "";
+    $errors="";
 
 //Number of errors
-$count = 4;
+    $count = 4;
 
 //CHECK TO SEE IF FORM IS SUBMITTED
-if (isset($_POST['AddEvent'])){
+    if (isset($_POST['AddEvent'])){
 
 
-    //GET DATA FROM FORM
-    $evname = $_POST['EventName'];
-    $evlocation = $_POST['EventLocation'];
-    $evdate = $_POST['EventDate'];
-    $evtime = $_POST['EventTime'];
+        //GET DATA FROM FORM
+        $evname = $_POST['EventName'];
+        $evlocation = $_POST['EventLocation'];
+        $evdate = $_POST['EventDate'];
+        $evtime = $_POST['EventTime'];
 
-    //Ensure some inputs are restricted such as a  no name event or an old date
-    if($evname == "" || $evdate < date('Y-m-d') || $evlocation == ""){
-        echo "Please review errors displayed on the screen";
-    } else{
-        $ne->addEvent($evname, $evlocation, $evdate, $evtime);
+        //Ensure some inputs are restricted such as a  no name event or an old date
+        if($evname == "" || $evdate < date('Y-m-d') || $evlocation == ""){
+            echo "Please review errors displayed on the screen";
+        } else{
+            $ne->addEvent($user_id, $evname, $evlocation, $evdate, $evtime);
+        }
+
+
+
     }
-
-
-
-}
 
 //Error Messages displayed to guide users to what they are missing
-function checkEmpty($input){
-    $errmessage ="";
-    if($input == ""){
-        $errmessage = "Please input the required information";
-    }
-    return $errmessage;
-}
-
-function checkInputDate($input){
-    $currentdate = date('Y-m-d');
-    $errmessage ="";
-
-    if($input == ""){
-        $errmessage = "Please input the required information";
-    } else if($input < $currentdate){
-        $errmessage = "Please enter a valid date";
+    function checkEmpty($input){
+        $errmessage ="";
+        if($input == ""){
+            $errmessage = "Please input the required information";
+        }
+        return $errmessage;
     }
 
-    return $errmessage;
+    function checkInputDate($input){
+        $currentdate = date('Y-m-d');
+        $errmessage ="";
 
-}
+        if($input == ""){
+            $errmessage = "Please input the required information";
+        } else if($input < $currentdate){
+            $errmessage = "Please enter a valid date";
+        }
+
+        return $errmessage;
+
+    }
+} else {
+
+     header('Location:login.php');
+
+    }
+
+
+
 
 
 
