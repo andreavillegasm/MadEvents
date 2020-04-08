@@ -43,7 +43,17 @@
                             echo '<div class="alert alert-danger" role="alert">
                                     Fields cannot be empty!
                                 </div>';
-                        } else if ($_GET['error'] == "uidemailinvalid") {
+
+                        } else if ($_GET['error'] == "firstnameinvalid") {
+                            echo '<div class="alert alert-danger" role="alert">
+                                    Invalid first name
+                                </div>';
+
+                        } else if ($_GET['error'] == "lastnameinvalid") {
+                            echo '<div class="alert alert-danger" role="alert">
+                                    Invalid last name
+                                </div>';
+                        } else if ($_GET['error'] == "usernameemailinvalid") {
                             echo '<div class="alert alert-danger" role="alert">
                                     Invalid username and email
                                 </div>';
@@ -67,8 +77,16 @@
                 ?>
                 <form action="includes/signup.inc.php" method="post">
                     <div class="form-group text-white">
+                        <label for="firstname">First Name</label>
+                        <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First Name">
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group text-white">
                         <label for="username">Username</label>
-                        <input type="text" name="uid" class="form-control" id="username" placeholder="Username">
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Username">
                     </div>
                     <div class="form-group text-white">
                         <label for="emailAddress">Email Address</label>
