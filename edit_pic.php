@@ -1,5 +1,5 @@
 <?php
-include 'nav_header.php';
+session_start();
 $error="";
 if($_SESSION){
     require_once 'classes/Database.php';
@@ -41,7 +41,7 @@ else{
 
 <body>
 
-
+<?php include 'nav_header.php';?>
 <main role="main">
 
     <section class="jumbotron text-center" style="background-color:coral">

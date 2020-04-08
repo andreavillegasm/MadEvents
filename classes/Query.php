@@ -34,11 +34,11 @@ on users.userid = gallery_listing.userid";
         $count = $pdostm->execute();
         return $count;
     }
-    public function add_pic($username, $posts, $tag_name, $image_path, $post_date)
+    public function add_pic($userid, $posts, $tag_name, $image_path, $post_date)
     {
-        $sql = "insert into gallery_listing (user_name, posts, tag_name, image_path, post_date ) values(:username, :posts,:tag_name, :image_path, :post_date)";
+        $sql = "insert into gallery_listing (userid, posts, tag_name, image_path, post_date ) values(:username, :posts,:tag_name, :image_path, :post_date)";
         $pdostm = $this->dbcon->prepare($sql);
-        $pdostm->bindParam(':username', $username);
+        $pdostm->bindParam(':username', $userid);
         $pdostm->bindParam(':posts', $posts);
         $pdostm->bindParam(':tag_name', $tag_name);
         $pdostm->bindParam(':image_path', $image_path);

@@ -8,7 +8,7 @@ if($_SESSION){
     if(isset($_POST['addpic'])){
         $posts = $_POST['post'];
         $tag_name = $_POST['tag'];
-        $username = $_SESSION['username'];
+        $userid = $_SESSION['userId'];
         $post_date = date('yy-m-d');
 
         //validation for the image upload;
@@ -25,7 +25,7 @@ if($_SESSION){
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $image_path)){
                     $dbcon = Database::getDb();
                     $gallery_users = new Query($dbcon);
-                    $gallery_users->add_pic($username,$posts, $tag_name, $image_path, $post_date);
+                    $gallery_users->add_pic($userid,$posts, $tag_name, $image_path, $post_date);
                     header('Location:admin_gallery.php');
                 }else{
                     echo "File cannot be uploaded";
