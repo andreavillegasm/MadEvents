@@ -56,7 +56,7 @@ if (isset($_POST['addGuest'])) {
 
         </p>'.
         '<p>Sincerely, </p>'.
-        '<p>user name</p>';
+        '<p>'.$user_info->firstname. ' '.$user_info->lastname.'</p>';
     $is_body_html = 'true';
 
     $to_name = $friend_info->friend_first_name.' '.$friend_info->friend_middle_name.' '.$friend_info->friend_last_name;

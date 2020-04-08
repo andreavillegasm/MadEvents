@@ -110,6 +110,12 @@ include 'nav_header.php';
                     <button type="submit" class="btn btn-info" name="updateEvent">Update</button>
                 </div>
 
+
+
+            </form>
+            <form action="eventinfo_active.php" method="post">
+                <input type="hidden" name="eid" value="<?php echo $id?>"/>
+                <input type="submit" class="btn btn-dark" name="backLink" value="back"/>
             </form>
         </div>
     </section>

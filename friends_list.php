@@ -43,6 +43,10 @@ if ($_SESSION['username']) {
 
 <div class="container" >
     <div class="friend-container">
+        <form action="eventinfo_active.php" method="post">
+            <input type="hidden" name="eid" value="<?php echo $event_id?>"/>
+            <input type="submit" class="btn btn-dark" name="backLink" value="back"/>
+        </form>
         <h1 class="main-title">List of Friends</h1>
     <!--    Displaying Data in Table-->
         <div class="button-center">
@@ -64,7 +68,7 @@ if ($_SESSION['username']) {
             <tr>
 
                 <th scope="row"><?php echo $friend->friend_first_name. " ".$friend->friend_middle_name." ".$friend->friend_last_name?>
-                    <span class="badge badge-primary badge-success" id="invited-badge"></span></th>
+                    <span class="badge badge-primary badge-success" id="invited-badge"><?php ?></span></th>
 
                 <td><?php echo $friend->friend_email ?></td>
                 <td><?php echo $friend->friend_phone ?></td>

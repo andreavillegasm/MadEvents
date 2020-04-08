@@ -1,19 +1,21 @@
 <?php
-require 'nav_header.php';
+
 
 require_once 'classes/Database.php';
 require_once 'classes/Guest.php';
+session_start();
+if ($_SESSION['username']) {
 
 //Get the database connection
 $dbconn = Database::getDb();
 $f = new Guest($dbconn);
 
 
-$fname= $mname = $lname = $email = $phone = "";
+$fname = $mname = $lname = $email = $phone = "";
 $inputvariables = [$fname, $mname, $lname, $email, $phone];
 $count = 0;
 
-if(isset($_POST['updateFriend'])){
+if (isset($_POST['updateFriend'])) {
 
     //Get the event id
     $id = $_POST['id'];
@@ -22,13 +24,13 @@ if(isset($_POST['updateFriend'])){
     $friends = $f->updateInfo($id);
 
     //Inputted the returned values
-    foreach ($friends as $info){
+    foreach ($friends as $info) {
 
         $inputvariables[$count] = $info;
         $count++;
     }
 }
-if(isset($_POST['updatFriend'])) {
+if (isset($_POST['updatFriend'])) {
     $fname = $_POST['first'];
     $mname = $_POST['middle'];
     $lname = $_POST['last'];
@@ -39,6 +41,9 @@ if(isset($_POST['updatFriend'])) {
     $f->updateFriend($fname, $mname, $lname, $email, $phone, $id);
 
 
+}
+}else {
+    header('Location:login.php');
 }
 
 ?>
@@ -54,7 +59,7 @@ if(isset($_POST['updatFriend'])) {
 
 </head>
 
-
+<?php include 'nav_header.php';?>
 <body>
     <main style="background-image: url('img/friends_bg.jpg');background-size: 65%; " class="main-friends">
         <div class="container">

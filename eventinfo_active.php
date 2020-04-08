@@ -1,8 +1,7 @@
 <?php
-//The Header Nav Bar
-include 'nav_header.php';
 
-//session_start();
+
+session_start();
 if ($_SESSION['username']) {
     require_once 'classes/Database.php';
     require_once 'classes/Event.php';
@@ -21,6 +20,13 @@ if ($_SESSION['username']) {
 
         //Id of event that has been sent
         $id = $_POST['id'];
+
+    }
+
+    if (isset($_POST['backLink'])) {
+
+        //Id of event that has been sent
+        $id = $_POST['eid'];
 
     }
 
@@ -59,13 +65,17 @@ if ($_SESSION['username']) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
+<?php //The Header Nav Bar
+include 'nav_header.php';?>
 <body>
 
 <main class="myevents-main" style="background-color: white">
     <!-- Top Section that has event information -->
-    <section class="jumbotron text-center" style="background-image: url('img/header-event-info.jpg')">
-        <div class="container">
+
+    <section class="jumbotron" style="background-image: url('img/header-event-info.jpg')">
+        <a class="btn btn-dark" href="event_dashboard.php" id="back">Back</a>
+        <div class="container" style="text-align: center">
+
             <h1 class="jumbotron-heading" style="color: white;"><?php  echo $info[0] ?></h1>
 
             <div class="event-description">
