@@ -21,6 +21,21 @@ class Guest
         return $friends;
     }
 
+    public function listGuests($event_id){
+
+        $sql = "select * from guest_list join event_info
+                    on event_info.id = guest_list.event_id
+                    join friends
+                    on friends.id = guest_list.friend_id
+                    where guest_list.event_id = :event_id ";
+        $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->bindParam(':event_id', $event_id);
+        $pdostm->execute();
+
+        $guests = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $guests;
+    }
+
     //Adding a friend
     public function addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone){
         $sql = "INSERT INTO friends (user_id, friend_first_name, friend_middle_name, friend_last_name, friend_email, friend_phone) values (:user_id, :fname, :fmiddle, :flast, :femail, :fphone)";
@@ -108,25 +123,6 @@ class Guest
         }
     }
 
-    //Adding a friend
-    public function addGuest($event_id, $friend_id){
-        $sql = "INSERT INTO guest_list (event_id, friend_id) values (:event_id, :friend_id)";
 
-        //Prepare
-        $pdostm = $this->dbconn -> prepare($sql);
-
-        //Bind
-        $pdostm->bindParam(':event_id', $event_id);
-        $pdostm->bindParam(':friend_id', $friend_id);
-
-
-        //Execute
-        $numRowsAffected = $pdostm->execute();
-        if($numRowsAffected){
-            header("Location: friends_list.php");
-        } else {
-            echo 'a problem occurred adding your guest';
-        }
-    }
 
 }

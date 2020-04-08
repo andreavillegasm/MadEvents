@@ -1,5 +1,6 @@
 <?php
 include "nav_header.php";
+include "includes/islogin.php";
 ?>
 <main id="main">
 

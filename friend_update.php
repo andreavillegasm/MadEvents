@@ -111,7 +111,7 @@ if(isset($_POST['updatFriend'])) {
                         </button>
                     </div>
                     <div class="back-link">
-                        <a href="FriendsList.php" id="bttn-back" class="back">Back</a>
+                        <a href="friends_list.php" id="bttn-back" class="back">Back</a>
                     </div>
                 </form>
             </div>

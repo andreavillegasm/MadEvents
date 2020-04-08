@@ -48,3 +48,9 @@ The user can log out by going to the home page (index.php) and clicking sign out
 2. Head over a past event (eventinfo_past.php)
 3. Comment and Submit.
 
+## Registration Email - Jashanpreet Kaur
+When a new user sign up with our website. They will receive a welcome email form our website to make them familiar. Because, In this email we will explain that we are going to offer them with our website. 
+
+## Email Reminder - Jashanpreet Kaur
+It’s for those users or guests who are going to attend a event. This feature will send them a reminder before one hour of event’s starting time. This will be done with cron job which will run the reminder email script in every five minutes. 
+

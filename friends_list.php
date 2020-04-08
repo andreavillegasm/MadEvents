@@ -12,10 +12,12 @@ if ($_SESSION['username']) {
 
     $friends = $f->listFriends($user_id);
 
+
     if (isset($_POST['inviteFriends'])) {
 
         //Id of event that has been sent
         $event_id = $_POST['id'];
+        $guests = $f->listGuests($event_id);
 
     }
 
@@ -61,7 +63,9 @@ if ($_SESSION['username']) {
         <?php foreach ($friends as $friend){ ?>
             <tr>
 
-                <th scope="row"><?php echo $friend->friend_first_name. " ".$friend->friend_middle_name." ".$friend->friend_last_name?></th>
+                <th scope="row"><?php echo $friend->friend_first_name. " ".$friend->friend_middle_name." ".$friend->friend_last_name?>
+                    <span class="badge badge-primary badge-success" id="invited-badge"></span></th>
+
                 <td><?php echo $friend->friend_email ?></td>
                 <td><?php echo $friend->friend_phone ?></td>
                 <td>
