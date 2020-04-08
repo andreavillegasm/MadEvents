@@ -52,5 +52,15 @@ The user can log out by going to the home page (index.php) and clicking sign out
 When a new user sign up with our website. They will receive a welcome email form our website to make them familiar. Because, In this email we will explain that we are going to offer them with our website. 
 
 ## Email Reminder - Jashanpreet Kaur
-It’s for those users or guests who are going to attend a event. This feature will send them a reminder before one hour of event’s starting time. This will be done with cron job which will run the reminder email script in every five minutes. 
+It’s for those users or guests who are going to attend a event. This feature will send them a reminder before one hour of event’s starting time. This will be done with cron job which will run the reminder email script in every five minutes.
+
+## Invite Friends - Andrea Villegas Mayorga
+ 1. See friends list:
+Users can see their friends list by going to the eventinfo_active page of the event they wish to invite their friends to. Once on that page they click on the button inivite, and are redirected to their friends list.
+2.Invite Friend:
+Users can select on the button invite next to any of the friends on the list, and the friend will be added to the guest list as well as receive an email invitation for the event.
+3.Add a friend:
+Users can add a friend to their friends list if they wish to add someone new to invite and keep on record for future events.
+4.Edit and Delete Friend
+Users can edit the information regarding a particular friend, as well as delete a friend from the friends list.
 
