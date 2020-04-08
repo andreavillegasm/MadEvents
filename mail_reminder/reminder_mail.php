@@ -11,9 +11,11 @@ foreach($emails as $email){
     $date = $email->event_date;
     $time= $email->event_time;
     //match the event time with email time
-    $event_time = date('H:i:s', strtotime('-1 hour',strtotime($time)));
-    var_dump($date . $time);
+    $event_time1 = date('H:i:s', strtotime('-1 hour',strtotime($time)));
+    $event_time2 = date('H:i:s', strtotime('-1 hour 5 minutes',strtotime($time)));
 
+    var_dump($event_time1);
+    var_dump($event_time2);
     $from_address = 'eplanner470@gmail.com';
     $from_name = 'Mad Event';
     $subject = 'Event Reminder';
@@ -45,7 +47,7 @@ Mad_Event
 
     if($date == $local_date){
 
-        if($event_time == $local_time){
+        if($event_time1 <= $local_time && $event_time2 >= $local_time){
             $to_name = $email->friend_first_name. $email->friend_middle_name. $email->friend_last_name;
             $to_address = $email->friend_email;
             var_dump($to_address);
