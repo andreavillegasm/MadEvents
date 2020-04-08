@@ -1,5 +1,5 @@
 <?php
-include "nav_header.php";
+session_start();
 if($_SESSION['username']){
     require_once 'classes/Database.php';
     require_once 'classes/Query.php';
@@ -41,7 +41,7 @@ else{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<?php include 'nav_header.php' ?>
 <nav>
     <div class="header-navigation" style="background-color:coral">
         <div class="header-nav-content">
