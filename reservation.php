@@ -158,7 +158,7 @@ if(isset($_POST["cancel"])){
                                     <input type="hidden" name="event_time" value="<?php echo $currentEventTime; ?>"/>
                                     <input type="hidden" name="event_name" value="<?php echo $currentEventName; ?>"/>
                                     <input type="hidden" name="event_date" value="<?php echo $currentEventDate; ?>"/>
-                                    <button type="submit" onclick="confirm('are you sure?')" name="cancel" class="btn btn-info">Cancel</button>
+                                    <button type="submit" onclick="return confirm('are you sure?')" name="cancel" class="btn btn-info">Cancel</button>
                                 </form>
                             </div>
                         </div>
