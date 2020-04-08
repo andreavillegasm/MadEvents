@@ -1,25 +1,3 @@
-<?php
-require_once 'classes/Database.php';
-require_once 'classes/Reservation.php';
-
-// vars
-//$popup = false;
-
-$dbconn = Database::getDb();
-$reservation = new Reservation($dbconn);
-
-// active events
-$events = $reservation->listEvents();
-// booked events
-$booked_events = $reservation->listBookedEvents();
-
-if(isset($_POST["cancel"])){
-    $reservation->deleteReservation($_POST["id"]);
-}
-
-
-?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -39,7 +17,28 @@ if(isset($_POST["cancel"])){
 //The Header Nav Bar
 include 'nav_header.php';
 
+require_once 'classes/Database.php';
+require_once 'classes/Reservation.php';
+
+// vars
+//$popup = false;
+include "includes/islogin.php";
+
+$dbconn = Database::getDb();
+$reservation = new Reservation($dbconn);
+
+// active events
+$events = $reservation->listEvents();
+// booked events
+$booked_events = $reservation->listBookedEvents();
+
+if(isset($_POST["cancel"])){
+    $reservation->deleteReservation($_POST["id"]);
+}
+
+
 ?>
+
 
 <main class="myevents-main" style="background-color: white">
 <!--    <div class="modal --><?php //if (!$popup) {

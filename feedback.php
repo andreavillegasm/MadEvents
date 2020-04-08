@@ -1,6 +1,18 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+
+<?php include "nav_header.php";
 include "classes/Database.php";
 include "classes/Feedback.php";
+include "includes/islogin.php";
 
 // vars
 $isPostBack = false;
@@ -34,19 +46,6 @@ if(isset($_POST["submit"])){
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-
-<body>
-
-<?php include "nav_header.php" ?>
 
 <main id="main">
     <div class="container">

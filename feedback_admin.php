@@ -1,13 +1,3 @@
-<?php
-include "classes/Database.php";
-include "classes/Feedback.php";
-
-// vars
-$dbcon =  Database::getDb();
-$fb = new Feedback($dbcon);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +9,15 @@ $fb = new Feedback($dbcon);
 
 <body>
 
-<?php include "nav_header.php" ?>
+<?php include "nav_header.php";
+include "classes/Database.php";
+include "classes/Feedback.php";
+include "includes/islogin.php";
+// vars
+$dbcon =  Database::getDb();
+$fb = new Feedback($dbcon);
 
+?>
 <main id="main">
     <div class="container">
         <div class="jumbotron">
