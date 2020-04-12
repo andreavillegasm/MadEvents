@@ -28,7 +28,8 @@ if (!isset($_SESSION)) {
     <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow">
     <div class="container">
         <a class="navbar-brand" href="index.php">
-            <div class="logo">MAD<span>EVENTS</span></div>
+            <img src="img/logo-white.png" style="
+                height: 3em;"alt="" srcset="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

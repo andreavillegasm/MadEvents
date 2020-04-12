@@ -16,7 +16,7 @@
     <div class="container-custom">
 
         <div class="text-light general-title">
-            <h1>Upcoming Events</h1>
+            <h1>Explore Events</h1>
         </div>
 
         <div class="row">
@@ -64,7 +64,7 @@
 
     </div>
 
-    <div id="happening-now" class="carousel slide" data-ride="carousel">
+    <!-- <div id="happening-now" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="img/coffee-carousel.jpg" alt="First slide">
@@ -83,7 +83,7 @@
                 <button type="button" class="btn-general">Read More</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="newsletter container-custom">
         <div class="row">

@@ -2,7 +2,7 @@
 <footer>
     <div class="footer-contents container-custom d-flex flex-row">
         <div class="logo-container d-flex flex-column">
-            <div class="logo-footer">MAD<span>EVENTS</span></div>
+        <img src="img/logo-black.png" style="width: 20em;" alt="" srcset="">
             <p>&copy;2020 Mad Events, Humber College North</p>
         </div>:
 
