@@ -58,14 +58,40 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         //Execute
         $numRowsAffected = $pdostm->execute();
         if($numRowsAffected){
-
+            // jump to reservation page
+            // header("Location: reservation.php");
             $url = "reservation.php";
             echo "<script type='text/javascript'>";
             echo "window.location.href='$url'";
             echo "</script>";
-//            header("Location: reservation.php");
         } else {
             echo 'a problem occurred when booking';
+        }
+    }
+
+
+    //ADDING A NEW EVENT INTO THE DATABASE
+    public function updateReservation($id, $numberOfGuests){
+        $sql = "UPDATE reservation SET number_of_guests = :nog WHERE id = :id";
+
+        //Prepare
+        $pdostm = $this->dbconn -> prepare($sql);
+
+        //Bind
+        $pdostm->bindParam(':id', $id);
+        $pdostm->bindParam(':nog', $numberOfGuests);
+
+        //Execute
+        $numRowsAffected = $pdostm->execute();
+        if($numRowsAffected){
+            // jump to reservation page
+            // header("Location: reservation.php");
+            $url = "reservation.php";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+        } else {
+            echo 'a problem occurred when updating';
         }
     }
 

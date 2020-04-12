@@ -32,9 +32,6 @@ $events = $reservation->listEvents();
 // booked events
 $booked_events = $reservation->listBookedEvents();
 
-if(isset($_POST["cancel"])){
-    $reservation->deleteReservation($_POST["id"]);
-}
 
 
 ?>
@@ -86,8 +83,8 @@ if(isset($_POST["cancel"])){
 <!--        </div>-->
 <!--    </div>-->
     <div class="jumbotron">
-        <h1>Avaliable Reservation</h1>
-        <b>select a current event to book a reservation.</b>
+        <h1>Avaliable Events</h1>
+        <b>select a current event to book an event.</b>
 
         <div class="row">
 
@@ -117,7 +114,7 @@ if(isset($_POST["cancel"])){
                                     <input type="hidden" name="event_time" value="<?php echo $currentEventTime; ?>"/>
                                     <input type="hidden" name="event_name" value="<?php echo $currentEventName; ?>"/>
                                     <input type="hidden" name="event_date" value="<?php echo $currentEventDate; ?>"/>
-                                    <button type="submit" name="submit" class="btn btn-info">Book</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Book</button>
                                 </form>
                             </div>
                         </div>
@@ -127,22 +124,25 @@ if(isset($_POST["cancel"])){
             }
             ?>
         </div>
-        <h1>My Reservation</h1>
-        <b>I have already booked these reservations.</b>
+        <h1>My Booking</h1>
+        <b>I have already booked these events.</b>
 
         <div class="row">
             <?php
 
             if (sizeof($booked_events) === 0){
-                echo "<h3 class='text-info'>Oops! Currently ou don't have any booked reservation~</h3>";
+                echo "<h3 class='text-info'>Oops! Currently you don't have any booked event.</h3>";
             }
             foreach ($booked_events as $event) {
-                $currentEventId = $event->id;
+                $currentEventId = $event->event_id;
                 $currentEventDate = $event->event_date;
                 $currentEventName = $event->event_name;
                 $currentEventTime = $event->event_time;
                 $currentUserId = $_SESSION["userId"];
                 $currentNoG = $event->number_of_guests;
+                $currentReservationId = $event->id;
+                $nog = $event->number_of_guests;
+//                var_dump($event);
 
                 ?>
                 <div class="col">
@@ -153,12 +153,15 @@ if(isset($_POST["cancel"])){
                         <div class="card-img-overlay">
                             <h5 class="event-name"><?php echo $currentEventName; ?></h5>
                             <div class="view-button">
-                                <form method="post" action="">
+                                <form method="post" action="reservation_update.php" style="float:right; margin-right: 40px;">
                                     <input type="hidden" name="id" value="<?php echo $currentEventId; ?>"/>
                                     <input type="hidden" name="event_time" value="<?php echo $currentEventTime; ?>"/>
                                     <input type="hidden" name="event_name" value="<?php echo $currentEventName; ?>"/>
                                     <input type="hidden" name="event_date" value="<?php echo $currentEventDate; ?>"/>
-                                    <button type="submit" onclick="return confirm('are you sure?')" name="cancel" class="btn btn-info">Cancel</button>
+                                    <input type="hidden" name="rid" value="<?php echo $currentReservationId; ?>"/>
+                                    <input type="hidden" name="nog" value="<?php echo $nog; ?>"/>
+                                    <button type="submit" name="update" class="btn btn-primary">Update</button>
+                                    <button type="submit" onclick="return confirm('are you sure?')" name="cancel" class="btn btn-danger">Unbook</button>
                                 </form>
                             </div>
                         </div>

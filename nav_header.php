@@ -58,7 +58,7 @@ session_regenerate_id();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="event_dashboard.php">My Events</a>
                     <a class="dropdown-item" href="#">Popular Events</a>
-                    <a class="dropdown-item" href="reservation.php">Book a Reservation</a>
+                    <a class="dropdown-item" href="reservation.php">Join an event</a>
                 </div>
             </li>
 

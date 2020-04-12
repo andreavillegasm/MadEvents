@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,28 +24,35 @@ require_once 'classes/Reservation.php';
 include "includes/islogin.php";
 
 // from reservation page
-if (isset($_POST["submit"])) {
-
-    // todo if the user have not booked this event
-
-//    popup
-//    $popup = true;
-    $eventId = $_POST["id"];
-    $eventName = $_POST["event_name"];
-    $eventDate = $_POST["event_date"];
-    $eventTime = $_POST["event_time"];
-
-}else if (isset($_POST["book"])) {
+if (isset($_POST["update"])) {
+    // update
     $dbconn = Database::getDb();
     $reservation = new Reservation($dbconn);
 
     $eventId = $_POST["id"];
-    echo $eventId;
+    $eventName = $_POST["event_name"];
+    $eventDate = $_POST["event_date"];
+    $eventTime = $_POST["event_time"];
+    $rid = $_POST["rid"];
+    $nog = $_POST["nog"];
+
+} else if (isset($_POST["callupdate"])) {
+    // update
+    $dbconn = Database::getDb();
+    $reservation = new Reservation($dbconn);
+
+    $rid = $_POST["rid"];
     $nog = $_POST["numberOfGuests"];
-    $userId = $_POST["userId"];
 
-
-    $reservation->addReservation($userId, $eventId, $nog);
+    $reservation->updateReservation($rid, $nog);
+} else if (isset($_POST["cancel"])) {
+    // update
+    $dbconn = Database::getDb();
+    $reservation = new Reservation($dbconn);
+    // cancel
+    $reservation->deleteReservation($_POST["rid"]);
+} else {
+    header("Location: index.php ");
 }
 
 ?>
@@ -62,33 +68,24 @@ if (isset($_POST["submit"])) {
                 <?php echo $eventTime ?>
             </div>
             <div class="row" id="info-buttons">
-                <!--                <div class="col" id="col-edit">-->
-                <!--                    <form action="eventinfo_update.php" method="post">-->
-                <!--                        <input type="hidden" name="id" value="--><? //= $id; ?><!--"/>-->
-                <!--                        <button type="submit" name="editEvent" class="btn btn-light" id="infoedit-button">Edit</button>-->
-                <!--                    </form>-->
-                <!--                </div>-->
-                <!--                <div class="col" id="col-delete">-->
-                <!--                    <form action="eventinfo_delete.php" method="post">-->
-                <!--                        <input type="hidden" name="id" value="--><? //= $id; ?><!--"/>-->
-                <!--                        <button type="submit" name="deleteEvent" class="btn btn-danger" id="infodelete-button">Delete-->
-                <!--                        </button>-->
-                <!--                    </form>-->
-                <!--                </div>-->
-
                 <div class="col">
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?= $eventId; ?>"/>
+                        <input type="hidden" name="rid" value="<?= $rid; ?>"/>
                         <input type="hidden" name="userId" value="<?= $_SESSION["userId"]; ?>"/>
                         <label for="numberOfGuests" style="color: white;font-weight: 700;">Number of Guests:</label>
                         <select id="numberOfGuests" name="numberOfGuests">
                             <?php
                             for ($i = 0; $i < 10; $i++) {
-                                echo "<option value=\"" . ($i + 1) . "\">" . ($i + 1) . "</option>";
+                                if ($nog != ($i + 1)) {
+                                    echo "<option value=\"" . ($i + 1) . "\">" . ($i + 1) . "</option>";
+                                }else{
+                                    echo "<option value=\"" . ($i + 1) . "\" selected>" . ($i + 1) . "</option>";
+                                }
                             }
                             ?>
                         </select>
-                        <button type="submit" name="book" class="btn btn-info" id="infodelete-button">Book</button>
+                        <button type="submit" name="callupdate" class="btn btn-info" id="infodelete-button">Book
+                        </button>
                     </form>
                 </div>
             </div>
