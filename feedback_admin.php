@@ -38,7 +38,7 @@ $fb = new Feedback($dbcon);
 
                 foreach ($feedbacks as $feedback) {
 
-                    $id = $feedback["FeedbackId"];
+                    $id = $feedback["id"];
 
                     echo "<tr><td>";
                     echo $feedback["username"];
@@ -46,7 +46,7 @@ $fb = new Feedback($dbcon);
                     echo "</td><td>";
 
                     echo "<a href='feedback_detail.php?FeedbackId=$id'>";
-                    echo $feedback['Title'];
+                    echo $feedback['title'];
                     echo "</a></td><td>";
 
                     // admins do not need to add feedback.

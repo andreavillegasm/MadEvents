@@ -14,7 +14,7 @@ class Feedback
     public function listFeedback()
     {
         // make it a bridge table for feedbacks table and users table
-        $sql = "SELECT * FROM feedbacks join users on users.UserId = feedbacks.UserId";
+        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
 
@@ -23,7 +23,7 @@ class Feedback
     // show all the feedback
     public function listFeedbackDetail($feedbackId)
     {
-        $sql = "SELECT * FROM feedbacks join users on users.UserId = feedbacks.UserId WHERE feedbacks.FeedbackId = " . $feedbackId;
+        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id WHERE feedback.FeedbackId = " . $feedbackId;
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
 
@@ -34,7 +34,7 @@ class Feedback
     public function addFeedback($userid, $title, $content)
     {
         // prepare sql
-        $sql = "INSERT INTO feedbacks (UserId, Title, Content) 
+        $sql = "INSERT INTO feedback (user_id, Title, Content) 
               VALUES (:UserId, :Title, :Content) ";
 
         $pdostm = $this->dbcon->prepare($sql);
@@ -52,7 +52,7 @@ class Feedback
     {
 
         // delete by id
-        $sql = "DELETE FROM feedbacks WHERE FeedbackId = $id";
+        $sql = "DELETE FROM feedback WHERE FeedbackId = $id";
 
         // prepare sql
         $pdostm = $this->dbcon->prepare($sql);
@@ -64,7 +64,7 @@ class Feedback
     // update feedback, param: feedback id
     public function updateFeedback($id)
     {
-        $sql = "SELECT * FROM feedbacks join users on users.UserId = feedbacks.UserId where FeedbackId = $id";
+        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id where FeedbackId = $id";
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
 
