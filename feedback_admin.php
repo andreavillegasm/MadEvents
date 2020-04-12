@@ -53,6 +53,7 @@ $fb = new Feedback($dbcon);
 //                    echo "<a href='feedbackAdd.php' class='addLink'>add</a>";
 //                    echo "/";
                     echo "<a onclick='return confirm(\"Are you sure you want to delete?\")' href='feedback_delete.php?FeedbackId=$id' class='btn btn-danger'>delete</a>";
+                    echo "<a href='feedback_update.php?FeedbackId=$id' class='btn btn-primary'>update</a>";
 
                     echo "</tr>";
                 }

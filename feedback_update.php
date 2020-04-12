@@ -13,6 +13,19 @@ include "includes/islogin.php";
             include "classes/Database.php";
             include "classes/Feedback.php";
 
+            // update
+            if (isset($_POST['update'])){
+
+                $dbcon = Database::getDb();
+                $fb = new Feedback($dbcon);
+
+                $feedbacks = $fb->updateFeedback($_GET['FeedbackId'], $_POST['title'], $_POST['content']);
+//                header("Location: feedback_admin.php");
+                $url = "feedback_admin.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
+            }
             // show details
             if (isset($_GET["FeedbackId"])) {
 
@@ -34,36 +47,39 @@ include "includes/islogin.php";
 //                        $status="fixed";
 //                        $class="bg-success";
 //                    }
-
+                    echo "<form action='' method='POST'>";
                     $id = $feedback["id"];
 
 //                    echo "<tr class='$class'><td>";
                     echo "<tr><td>";
                     echo $feedback['username'];
                     echo "</td><td>";
+                    $title = $feedback['title'];
+                    echo "<input type='text' name='title' value='" . $title . "'>";
 
-                    echo $feedback['title'];
                     echo "</td><td>";
 
-                    echo $feedback['content'];
+                    $content = $feedback['content'];
+                    echo "<input type='text' name='content' value='" . $content . "'>";
 //                    echo "</td><td>";
 
 //                    echo $status;
                     echo "</td></tr>";
+                    echo "<button type='submit' class='btn btn-primary' name='update'>Update</button>";
+                    echo "</form>";
                 }
                 echo "</tbody></table>"; ?>
 
-<!--                <form action="" method="post">-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="addMessage">Feedback</label>-->
-<!--                        <textarea name="addMessage" id="addMessage" class="form-control"></textarea>-->
-<!--                    </div>-->
-<!--                    <input type="submit" name="submit" value="submit" class="btn btn-primary"/>-->
-<!--                </form>-->
+                <!--                <form action="" method="post">-->
+                <!--                    <div class="form-group">-->
+                <!--                        <label for="addMessage">Feedback</label>-->
+                <!--                        <textarea name="addMessage" id="addMessage" class="form-control"></textarea>-->
+                <!--                    </div>-->
+                <!--                    <input type="submit" name="submit" value="submit" class="btn btn-primary"/>-->
+                <!--                </form>-->
                 <?php
 
                 echo "<a onclick='return confirm(\"Are you sure you want to delete?\")' href='feedback_delete.php?FeedbackId=$id' class='btn btn-danger'>Delete</a>";
-                echo "<a href='feedback_update.php?FeedbackId=$id' class='btn btn-primary'>Update</a>";
             }
             ?>
 

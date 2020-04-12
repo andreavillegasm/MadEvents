@@ -23,7 +23,7 @@ class Feedback
     // show all the feedback
     public function listFeedbackDetail($feedbackId)
     {
-        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id WHERE feedback.FeedbackId = " . $feedbackId;
+        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id WHERE feedback.id = " . $feedbackId;
         $pdostm = $this->dbcon->prepare($sql);
         $pdostm->execute();
 
@@ -52,7 +52,7 @@ class Feedback
     {
 
         // delete by id
-        $sql = "DELETE FROM feedback WHERE FeedbackId = $id";
+        $sql = "DELETE FROM feedback WHERE id = $id";
 
         // prepare sql
         $pdostm = $this->dbcon->prepare($sql);
@@ -62,12 +62,15 @@ class Feedback
     }
 
     // update feedback, param: feedback id
-    public function updateFeedback($id)
+    public function updateFeedback($id, $title, $content)
     {
-        $sql = "SELECT * FROM feedback join users on users.UserId = feedback.user_id where FeedbackId = $id";
+        $sql = "UPDATE feedback SET title = :title, content = :content WHERE id = :id";
         $pdostm = $this->dbcon->prepare($sql);
-        $pdostm->execute();
 
-        return $pdostm->fetchAll(PDO::FETCH_ASSOC);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->bindParam(':title', $title);
+        $pdostm->bindParam(':content', $content);
+
+        return $pdostm->execute();
     }
 }
