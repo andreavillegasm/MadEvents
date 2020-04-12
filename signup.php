@@ -43,12 +43,10 @@
                             echo '<div class="alert alert-danger" role="alert">
                                     Fields cannot be empty!
                                 </div>';
-
                         } else if ($_GET['error'] == "firstnameinvalid") {
                             echo '<div class="alert alert-danger" role="alert">
                                     Invalid first name
                                 </div>';
-
                         } else if ($_GET['error'] == "lastnameinvalid") {
                             echo '<div class="alert alert-danger" role="alert">
                                     Invalid last name
@@ -65,6 +63,10 @@
                             echo '<div class="alert alert-danger" role="alert">
                                     Username is already taken!
                                 </div>';
+                        } else if ($_GET['error'] == "adminerror") {
+                            echo '<div class="alert alert-danger" role="alert">
+                                    You cannot use the username Admin!
+                                </div>';
                         }
                     } 
                     
@@ -73,7 +75,7 @@
                         echo '<div class="alert alert-success" role="alert">
                                 Sign up successful!
                             </div>';
-                    } 
+                    }
                 ?>
                 <form action="includes/signup.inc.php" method="post">
                     <div class="form-group text-white">

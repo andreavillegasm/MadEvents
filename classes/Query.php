@@ -111,4 +111,12 @@ on users.userid = gallery_listing.userid";
         $values = $pdostm->fetchAll();
         return $values;
     }
+
+    public function deleteComments($commentid) {
+        $sql = "DELETE FROM comments where comment_id=:comment_id";
+        $pdostm = $this->dbcon->prepare($sql);
+        $pdostm->bindParam(':comment_id', $commentid);
+        $count = $pdostm->execute();
+        return $count;
+    }
 }

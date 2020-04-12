@@ -29,11 +29,25 @@ function showCommments() {
     $cs = new Query($dbcon);
     $comments = $cs->getComments();
  
-    foreach ($comments as $row) {
+    if ($_SESSION['username'] != 'admin') {
+        foreach ($comments as $row) {
+            echo "<li class='comment'><div class='comment-section-body'>";
+            echo "<strong class='text-success'>".$row['username']." " ."</strong>";
+            echo "<span class='text-muted pull-right'>";
+            echo "<small class='text-muted'>".$row['date_create']."</small>";
+            echo "</span>";
+            echo "<p>";
+            echo $row['message'];
+            echo "</p>";
+            echo "</div>";
+            echo "</li>";
+        }
+    } else {
         echo "<li class='comment'><div class='comment-section-body'>";
         echo "<strong class='text-success'>".$row['username']." " ."</strong>";
         echo "<span class='text-muted pull-right'>";
         echo "<small class='text-muted'>".$row['date_create']."</small>";
+        echo "<div class='float-right'><button type='button' class='btn btn-danger'>Delete</button></div>";
         echo "</span>";
         echo "<p>";
         echo $row['message'];
@@ -43,3 +57,13 @@ function showCommments() {
     }
 
 }
+
+// function removeComments() {
+    // if (isset($_SESSION['userId'] && $_SESSION['username'] == 'admin')) {
+        
+        
+//         if(isset($_POST['deleteComment'])) {
+        
+//         }
+//     }
+// }

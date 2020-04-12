@@ -53,7 +53,12 @@ if (isset($_POST['signup'])) {
     else if ($password !== $c_password) {
         header("Location: ../signup.php?error=matchpass&username=" . $username . "&mail=" . $email);
         exit();
-    } else {
+
+    } else if ($username == "admin") {
+        header("Location: ../signup.php?error=adminerror&username=" . $username);
+        exit();
+
+    }else {
         //eamil part
         //for welcome email
         $to_address = $email;

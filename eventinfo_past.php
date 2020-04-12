@@ -118,7 +118,7 @@ include 'nav_header.php';
         <hr class="my-4">
 
         <ul class="comment-section">
-            <?php
+            <?php           
                 showCommments();
             ?>
         </ul>
