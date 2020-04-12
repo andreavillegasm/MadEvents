@@ -28,6 +28,7 @@ function showCommments() {
     $dbcon = Database::getDb();
     $cs = new Query($dbcon);
     $comments = $cs->getComments();
+    // $deleteComments = $cs->deleteComments();
  
     if ($_SESSION['username'] != 'admin') {
         foreach ($comments as $row) {

@@ -1,6 +1,8 @@
 <?php
-session_start();
-session_regenerate_id();
+if (!isset($_SESSION)) {
+    session_start();
+    session_regenerate_id();
+}
 ?>
 
 <link src="css/bootstrap.min.css"/>
@@ -48,7 +50,7 @@ session_regenerate_id();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="admin_gallery.php">My profile</a>
                     <a class="dropdown-item" href="public_gallery.php">All Images</a>
-                </div>  
+                </div>
             </li>
 
             <li class="nav-item dropdown">
@@ -69,7 +71,7 @@ session_regenerate_id();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="feedback.php">Feedback</a>
                     <a class="dropdown-item" href="feedback_admin.php">Feedback Admin</a>
-                </div>  
+                </div>
             </li>
 
             <li class="nav-item">
@@ -77,22 +79,22 @@ session_regenerate_id();
             </li>
 
                 <?php
-                if (isset($_SESSION['userId'])) {
-                    echo '<li class="nav-item login-btn">
+if (isset($_SESSION['userId'])) {
+    echo '<li class="nav-item login-btn">
                             <form action="includes/logout.inc.php" method="post">
                                 <button type="submit" name="logout">Sign Out</button>
                             </form>
                         </li>';
-                } else {
-                    echo '
+} else {
+    echo '
                     <li class="nav-item login-btn">
                         <a href="login.php" class="btn btn-outline-light">Sign In</a>
                     </li>
                     <li class="nav-item login-btn">
                         <a href="signup.php" class="btn btn-outline-light">Sign Up</a>
                     </li>';
-                }
-                ?>
+}
+?>
         </ul>
         </div>
     </div>
