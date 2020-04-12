@@ -84,8 +84,9 @@ if (isset($_POST["update"])) {
                             }
                             ?>
                         </select>
-                        <button type="submit" name="callupdate" class="btn btn-info" id="infodelete-button">Book
+                        <button type="submit" name="callupdate" class="btn btn-primary" id="infodelete-button">Update
                         </button>
+                        <a href="reservation.php" class="btn btn-light">Back</a>
                     </form>
                 </div>
             </div>

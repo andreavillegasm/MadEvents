@@ -98,7 +98,8 @@ if (isset($_POST["submit"])) {
                             }
                             ?>
                         </select>
-                        <button type="submit" name="book" class="btn btn-info" id="infodelete-button">Book</button>
+                        <button type="submit" name="book" class="btn btn-primary" id="infodelete-button">Book</button>
+                        <a href="reservation.php" class="btn btn-light">Back</a>
                     </form>
                 </div>
             </div>
