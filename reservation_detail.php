@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,16 +26,27 @@ include "includes/islogin.php";
 // from reservation page
 if (isset($_POST["submit"])) {
 
-    // todo if the user have not booked this event
+//    $dbconn = Database::getDb();
+//    $reservation = new Reservation($dbconn);
+
+    // user id
+    $userId = $_SESSION["userId"];
+    // event id
+    $eventId = $_POST["id"];
+//    $isBooked = $reservation->checkBooked($userId, $eventId);
+
+//    if ($isBooked) {
+//        // return
+//    } else {
 
 //    popup
 //    $popup = true;
-    $eventId = $_POST["id"];
-    $eventName = $_POST["event_name"];
-    $eventDate = $_POST["event_date"];
-    $eventTime = $_POST["event_time"];
+        $eventName = $_POST["event_name"];
+        $eventDate = $_POST["event_date"];
+        $eventTime = $_POST["event_time"];
+//    }
 
-}else if (isset($_POST["book"])) {
+} else if (isset($_POST["book"])) {
     $dbconn = Database::getDb();
     $reservation = new Reservation($dbconn);
 

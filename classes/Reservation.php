@@ -43,7 +43,7 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         return $events;
     }
 
-    //ADDING A NEW EVENT INTO THE DATABASE
+    // ADD
     public function addReservation($userId, $eventId, $numberOfGuests){
         $sql = "INSERT INTO reservation (user_id, event_id, number_of_guests) values (:user_id, :event_id, :nog)";
 
@@ -70,7 +70,7 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
     }
 
 
-    //ADDING A NEW EVENT INTO THE DATABASE
+    // UPDATE
     public function updateReservation($id, $numberOfGuests){
         $sql = "UPDATE reservation SET number_of_guests = :nog WHERE id = :id";
 
@@ -95,7 +95,7 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         }
     }
 
-    //DELETE EVENT
+    // DELETE
     public  function deleteReservation($id){
 
         //Receives id and deletes friend based on that
@@ -115,6 +115,26 @@ WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
         } else{
             echo "problem deleting a reservation";
         }
+    }
+
+    // check booked
+    public function checkBooked($userid, $eventid){
+        // sql
+        $sql = "SELECT * FROM `reservation` WHERE user_id=:uid AND event_id=:eid";
+
+        $pdostm=$this->dbconn->prepare($sql);
+        $pdostm->bindParam(':uid', $userid);
+        $pdostm->bindParam(':eid', $eventid);
+        $pdostm->execute();
+
+        $reservation = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        if(sizeof($reservation)===0){
+            return false;
+        }else{
+            return true;
+        }
+
+
     }
 
 }
