@@ -28,7 +28,7 @@ function showCommments() {
     $dbcon = Database::getDb();
     $cs = new Query($dbcon);
     $comments = $cs->getComments();
-    // $deleteComments = $cs->deleteComments();
+    // $deleteComments = $cs->deleteComments($commentid);
  
     if ($_SESSION['username'] != 'admin') {
         foreach ($comments as $row) {
@@ -58,13 +58,3 @@ function showCommments() {
     }
 
 }
-
-// function removeComments() {
-    // if (isset($_SESSION['userId'] && $_SESSION['username'] == 'admin')) {
-        
-        
-//         if(isset($_POST['deleteComment'])) {
-        
-//         }
-//     }
-// }
