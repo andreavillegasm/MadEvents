@@ -49,6 +49,8 @@ The user can log out by going to the home page (index.php) and clicking sign out
 3. Comment and Submit.
 
 ## Registration Email - Jashanpreet Kaur
+#create mail reminder folder for send the emails (php mailer with composer)
+#create a function for sending the emails
 When a new user sign up with our website. They will receive a welcome email form our website to make them familiar. Because, In this email we will explain that we are going to offer them with our website. 
 
 ## Email Reminder - Jashanpreet Kaur
