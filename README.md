@@ -72,3 +72,22 @@ Users can add a friend to their friends list if they wish to add someone new to 
 
 Users can edit the information regarding a particular friend, as well as delete a friend from the friends list.
 
+## Join an event - Tianyi
+
+https://jsandzz.tech/mad_event/reservation.php
+
+1. See available events:
+
+   Events that are available would be events holding after current time. Users are able to check all the available events on our website, and choose any to see details. Events that are already joined by users would still be listed with the join button unclickable.
+
+2. See events booked by current user:
+
+   Events that are already joined by current user would be listed below available events. Users can see what events they have joined, and choose to update or just cancel it.
+
+3. Update a booking:
+
+   Users can update a booking. They will go to booking detail page and select the columns they need to change.
+
+4. Cancel a booking:
+
+   Users can cancel their own bookings. If you do not feel like joining this event anymore, just cancel it!

@@ -120,9 +120,9 @@ $booked_events = $reservation->listBookedEvents();
                                     $isBooked = $reservation->checkBooked($currentUserId, $currentEventId);
                                     if($isBooked){
                                         // if the event is already booked by a user, the button would be un-clickable
-                                        echo "<button type=\"submit\" name=\"submit\" onclick='return false;' class=\"btn btn-primary disabled\">Booked</button>";
+                                        echo "<button type=\"submit\" name=\"submit\" onclick='return false;' class=\"btn btn-primary disabled\">Joined</button>";
                                     }else{
-                                        echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-primary\">Book</button>";
+                                        echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-primary\">Join</button>";
                                     }
                                     ?>
 
