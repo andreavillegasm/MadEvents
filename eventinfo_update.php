@@ -113,10 +113,7 @@ include 'nav_header.php';
 
 
             </form>
-            <form action="eventinfo_active.php" method="post">
-                <input type="hidden" name="eid" value="<?php echo $id?>"/>
-                <input type="submit" class="btn btn-dark" name="backLink" value="back"/>
-            </form>
+            <a href="eventinfo_active.php?id=<?php echo $id?>&viewEvent=">Cancel</a>
         </div>
     </section>
 </main>

@@ -13,10 +13,10 @@ if ($_SESSION['username']) {
     $friends = $f->listFriends($user_id);
 
 
-    if (isset($_POST['inviteFriends'])) {
+    if (isset($_GET['inviteFriends'])) {
 
         //Id of event that has been sent
-        $event_id = $_POST['id'];
+        $event_id = $_GET['id'];
         $guests = $f->listGuests($event_id);
 
     }
@@ -43,15 +43,15 @@ if ($_SESSION['username']) {
 
 <div class="container" >
     <div class="friend-container">
-        <form action="eventinfo_active.php" method="post">
-            <input type="hidden" name="eid" value="<?php echo $event_id?>"/>
-            <input type="submit" class="btn btn-dark" name="backLink" value="back"/>
-        </form>
+        <a  class="btn btn-light" href="eventinfo_active.php?id=<?php echo $event_id?>&viewEvent=">back</a>
         <h1 class="main-title">List of Friends</h1>
     <!--    Displaying Data in Table-->
-        <div class="button-center">
-            <a href="friend_add.php" id="btn_addFriend" class="btn btn-info">Add Friend</a>
-        </div>
+        <form action="friend_add.php" method="get">
+            <input type="hidden" name="eventid" value="<?php echo $event_id ?>">
+            <div class="button-center">
+                <button type="submit" id="addF" name="addF" class="btn btn-info">Add Friend</button>
+            </div>
+        </form>
         <table class="table">
         <thead>
         <tr>
@@ -82,12 +82,14 @@ if ($_SESSION['username']) {
                 <td>
                     <form action="friend_update.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
+                        <input type="hidden" name="eid" value="<?php echo $event_id?>"/>
                         <input type="submit" class="btn btn-warning" name="updateFriend" value="Edit"/>
                     </form>
                 </td>
                 <td>
                     <form action="friend_delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $friend->id?>"/>
+                        <input type="hidden" name="eid" value="<?php echo $event_id?>"/>
 
                         <input type="submit" class="btn btn-danger" name="deleteFriend" value="Delete"/>
                     </form>

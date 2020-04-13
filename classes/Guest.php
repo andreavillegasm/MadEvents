@@ -37,7 +37,7 @@ class Guest
     }
 
     //Adding a friend
-    public function addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone){
+    public function addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone, $eventid){
         $sql = "INSERT INTO friends (user_id, friend_first_name, friend_middle_name, friend_last_name, friend_email, friend_phone) values (:user_id, :fname, :fmiddle, :flast, :femail, :fphone)";
 
         //Prepare
@@ -54,7 +54,7 @@ class Guest
         //Execute
         $numRowsAffected = $pdostm->execute();
         if($numRowsAffected){
-            header("Location: friends_list.php");
+            header("Location: friends_list.php?id=".$eventid."&inviteFriends=");
         } else {
             echo 'a problem occurred inserting your friend';
         }
@@ -79,7 +79,7 @@ class Guest
 
         return  $upvalues;
     }
-    public function updateFriend($fname, $mname, $lname, $email, $phone, $id){
+    public function updateFriend($fname, $mname, $lname, $email, $phone, $id, $eventid){
         $sql = "Update friends
                 set friend_first_name = :first,
                 friend_middle_name = :middle,
@@ -101,13 +101,13 @@ class Guest
 
         $count = $pst->execute();
         if($count){
-            header("Location: friends_list.php");
+            header("Location: friends_list.php?id=".$eventid."&inviteFriends=");
         } else {
             echo "problem updating a friend's information";
         }
 
     }
-    public  function deleteFriend($id){
+    public  function deleteFriend($id, $eventid){
 
         //Receives id and deletes friend based on that
         $sql = "DELETE FROM friends WHERE id = :id";
@@ -117,7 +117,7 @@ class Guest
         $numRowsAffected = $pdostm->execute();
 
         if($numRowsAffected){
-            header('Location: friends_list.php');
+            header("Location: friends_list.php?id=".$eventid."&inviteFriends=");
         } else{
             echo "problem deleting a Friend";
         }

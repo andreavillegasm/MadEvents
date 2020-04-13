@@ -111,7 +111,7 @@ class Event
 
         $count = $pst->execute();
         if($count){
-            header("Location: event_dashboard.php");
+            header("Location: eventinfo_active.php?id=".$id."&viewEvent=");
         } else {
             echo "problem updating event information";
         }

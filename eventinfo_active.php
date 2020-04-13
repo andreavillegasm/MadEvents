@@ -23,13 +23,6 @@ if ($_SESSION['username']) {
 
     }
 
-    if (isset($_POST['backLink'])) {
-
-        //Id of event that has been sent
-        $id = $_POST['eid'];
-
-    }
-
     //return a array with the information of that event
     $info = $ne->infoEvent($id);
 
@@ -112,7 +105,7 @@ include 'nav_header.php';?>
                     <img src="img/user-friends-solid.svg" alt="friends icon" class="imginfo-icons">
                     <h3>Guest List</h3>
                     <p>Invite your friends via email, select invite and select who to invite from your Friend's list</p>
-                    <form action="friends_list.php" method="post"  >
+                    <form action="friends_list.php" method="get"  >
                         <input type="hidden" name="id" value="<?= $id; ?>" />
                         <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends"> Invite</button>
                     </form>

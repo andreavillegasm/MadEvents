@@ -65,7 +65,7 @@ if (isset($_POST['addGuest'])) {
     var_dump($to_name);
     try{
         send_email($to_address, $to_name, $from_address, $from_name, $subject, $body, $is_body_html);
-        header('Location: event_dashboard.php');
+        header('Location: eventinfo_active.php?id='.$event_id.'&viewEvent=');
 
     }catch(Exception $e){
         header('Location:Error_mail.php');

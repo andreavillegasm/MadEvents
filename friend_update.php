@@ -18,10 +18,11 @@ $count = 0;
 if (isset($_POST['updateFriend'])) {
 
     //Get the event id
-    $id = $_POST['id'];
+    $fid = $_POST['id'];
+    $eid =$_POST['eid'];
 
     //Get the information for the autofill
-    $friends = $f->updateInfo($id);
+    $friends = $f->updateInfo($fid);
 
     //Inputted the returned values
     foreach ($friends as $info) {
@@ -36,9 +37,10 @@ if (isset($_POST['updatFriend'])) {
     $lname = $_POST['last'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $id = $_POST['fid'];
+    $fid = $_POST['fid'];
+    $eid =$_POST['eid'];
 
-    $f->updateFriend($fname, $mname, $lname, $email, $phone, $id);
+    $f->updateFriend($fname, $mname, $lname, $email, $phone, $fid, $eid);
 
 
 }
@@ -68,7 +70,8 @@ if (isset($_POST['updatFriend'])) {
             <div>
                 <!--    Form to Update Friend -->
                 <form action="" method="post">
-                    <input type="hidden" name="fid" value="<?= $id; ?>" />
+                    <input type="hidden" name="fid" value="<?= $fid; ?>" />
+                    <input type="hidden" name="eid" value="<?= $eid; ?>" />
                     <div class="form-group">
                         <label for="first">First Name:</label>
                         <input type="text" class="form-control" name="first" id="first" value="<?= $inputvariables[0]; ?>"

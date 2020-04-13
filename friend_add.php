@@ -13,6 +13,10 @@ if ($_SESSION['username']) {
 //Declare variables that will hold the values
     $fname = $fmiddle = $flast = $femail = $fphone = "";
 
+if (isset($_GET['addF'])) {
+    $eventid = $_GET['eventid'];
+}
+
 //CHECK TO SEE IF FORM IS SUBMITTED
     if (isset($_POST['AddFriend'])) {
 
@@ -23,12 +27,13 @@ if ($_SESSION['username']) {
         $flast = $_POST['FriendLast'];
         $femail = $_POST['FriendEmail'];
         $fphone = $_POST['FriendPhone'];
+        $eventid =$_POST['eventid'];
 
         //Ensure some inputs are restricted such as a  no name event or an old date
         if ($fname == "" || $flast == "" || $femail == "") {
             echo "Please review errors displayed on the screen";
         } else {
-            $f->addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone);
+            $f->addFriend($user_id, $fname, $fmiddle, $flast, $femail, $fphone, $eventid);
         }
 
 
@@ -100,6 +105,7 @@ include 'nav_header.php';
         <div class="new-event-container">
             <h1 class="main-title">New Friend</h1>
             <form method="post" action="">
+                <input type="hidden" name="eventid" value="<?php echo $eventid?>">
                 <div class="form-group">
                     <label for="friend_name">First Name: </label>
                     <input type="text" class="form-control" id="friend_name" name="FriendName" value="<?php echo $fname ?>">

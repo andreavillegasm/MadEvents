@@ -13,9 +13,10 @@ if (isset($_POST['deleteFriend'])) {
 
     //get the id value
     $id = $_POST['id'];
+    $eid = $_POST['eid'];
 
     //Send id to delete method
-    $friends = $f->deleteFriend($id);
+    $friends = $f->deleteFriend($id, $eid);
 
 
 }
