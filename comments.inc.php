@@ -8,7 +8,7 @@ function addComments() {
         $uid = $_SESSION['userId'];
         $username = $_POST['username'];
         $date = $_POST['date'];
-        $message = $_POST['message'];      
+        $message = $_POST['message'];
         
         $dbcon = Database::getDb();
         $cs = new Query($dbcon);

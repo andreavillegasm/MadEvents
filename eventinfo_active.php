@@ -16,10 +16,10 @@ if ($_SESSION['username']) {
     //$id = 0;
 
 
-    if (isset($_POST['viewEvent'])) {
+    if (isset($_GET['viewEvent'])) {
 
         //Id of event that has been sent
-        $id = $_POST['id'];
+        $id = $_GET['id'];
 
     }
 

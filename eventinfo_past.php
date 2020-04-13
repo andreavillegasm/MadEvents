@@ -3,7 +3,7 @@ require_once 'classes/Database.php';
 require_once 'classes/Event.php';
 require_once 'classes/Query.php';
 
-include 'includes/comments.inc.php';
+include 'comments.inc.php';
 
 //for the comment section
 date_default_timezone_set('Canada/Eastern');
@@ -13,9 +13,9 @@ $dbconn = Database::getDb();
 $ne = new Event($dbconn);
 
 
-if(isset($_POST['viewpEvent'])){
+if(isset($_GET['viewpEvent'])){
     //Id of event that has been sent
-    $id = $_POST['id'];
+    $id = $_GET['id'];
 
     //return a array with the information of that event
     $info = $ne->infoEvent($id);

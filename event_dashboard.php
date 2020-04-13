@@ -83,7 +83,7 @@ if ($_SESSION['username']){
                         <div class="card-img-overlay">
                             <h5 class="event-name" ><?php echo $a->event_name ?></h5>
                             <div class="view-button">
-                                <form action="eventinfo_active.php" method="post"  >
+                                <form action="eventinfo_active.php" method="get"  >
                                     <input type="hidden" name="id" value="<?= $a->id; ?>" />
                                     <button type="submit" name="viewEvent" class="btn-info">View</button>
                                 </form>
@@ -112,7 +112,7 @@ if ($_SESSION['username']){
                             <div class="card-img-overlay">
                                 <h5 class="event-name" ><?php echo $p->event_name ?></h5>
                                 <div class="view-button">
-                                    <form action="eventinfo_past.php" method="post"  >
+                                    <form action="eventinfo_past.php" method="get"  >
                                         <input type="hidden" name="id" value="<?= $p->id; ?>" />
                                         <button type="submit" name="viewpEvent" class="btn-info">View</button>
                                     </form>
