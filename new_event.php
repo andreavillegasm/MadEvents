@@ -23,7 +23,7 @@ if($_SESSION['username']){
             //$_SESSION['userid'] = $user_id;
         }
     }
-    echo $user_id;
+    //echo $user_id;
 
 //Declare variables that will hold the values
     $evname = $evlocation = $evdate = $evtime = "";

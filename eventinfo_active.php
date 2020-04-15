@@ -52,7 +52,7 @@ if ($_SESSION['username']) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>New Event</title>
+    <title>Plan Event</title>
     <link rel="stylesheet" type="text/css" href="css/myevent.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
