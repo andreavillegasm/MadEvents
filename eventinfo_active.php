@@ -6,6 +6,7 @@ if ($_SESSION['username']) {
     require_once 'classes/Database.php';
     require_once 'classes/Event.php';
     require_once 'classes/Guest.php';
+    require_once 'classes/Reservation.php';
 
     $userid = $_SESSION['userid'];
 //Get the database connection
@@ -21,6 +22,8 @@ if ($_SESSION['username']) {
         //Id of event that has been sent
         $id = $_GET['id'];
 
+        $r = new Reservation($dbconn);
+        $reservations = $r->getReservationsByEventId($id);
     }
 
     //return a array with the information of that event
@@ -44,7 +47,6 @@ if ($_SESSION['username']) {
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +61,7 @@ if ($_SESSION['username']) {
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <?php //The Header Nav Bar
-include 'nav_header.php';?>
+include 'nav_header.php'; ?>
 <body>
 
 <main class="myevents-main" style="background-color: white">
@@ -69,10 +71,10 @@ include 'nav_header.php';?>
         <a class="btn btn-dark" href="event_dashboard.php" id="back">Back</a>
         <div class="container" style="text-align: center">
 
-            <h1 class="jumbotron-heading" style="color: white;"><?php  echo $info[0] ?></h1>
+            <h1 class="jumbotron-heading" style="color: white;"><?php echo $info[0] ?></h1>
 
             <div class="event-description">
-                <?php echo $info[1]?>
+                <?php echo $info[1] ?>
             </div>
             <div class="event-description">
                 <?php echo $info[2] ?>
@@ -82,16 +84,17 @@ include 'nav_header.php';?>
             </div>
             <div class="row" id="info-buttons">
                 <div class="col" id="col-edit">
-                <form action="eventinfo_update.php" method="post"  >
-                    <input type="hidden" name="id" value="<?= $id; ?>" />
-                    <button type="submit" name="editEvent" class="btn btn-light" id="infoedit-button">Edit</button>
-                </form>
+                    <form action="eventinfo_update.php" method="post">
+                        <input type="hidden" name="id" value="<?= $id; ?>"/>
+                        <button type="submit" name="editEvent" class="btn btn-light" id="infoedit-button">Edit</button>
+                    </form>
                 </div>
                 <div class="col" id="col-delete">
-                <form action="eventinfo_delete.php" method="post"  >
-                    <input type="hidden" name="id" value="<?= $id; ?>" />
-                    <button type="submit" name="deleteEvent" class="btn btn-danger" id="infodelete-button">Delete</button>
-                </form>
+                    <form action="eventinfo_delete.php" method="post">
+                        <input type="hidden" name="id" value="<?= $id; ?>"/>
+                        <button type="submit" name="deleteEvent" class="btn btn-danger" id="infodelete-button">Delete
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -105,24 +108,60 @@ include 'nav_header.php';?>
                     <img src="img/user-friends-solid.svg" alt="friends icon" class="imginfo-icons">
                     <h3>Guest List</h3>
                     <p>Invite your friends via email, select invite and select who to invite from your Friend's list</p>
-                    <form action="friends_list.php" method="get"  >
-                        <input type="hidden" name="id" value="<?= $id; ?>" />
-                        <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends"> Invite</button>
+                    <form action="friends_list.php" method="get">
+                        <input type="hidden" name="id" value="<?= $id; ?>"/>
+                        <button type="submit" name="inviteFriends" class="btn btn-info" id="inviteFriends"> Invite
+                        </button>
                     </form>
                     <ul class="list-group" id="guest-list-design">
                         <?php
-                        foreach ($guests as $guest){ ?>
-                        <li class="list-group-item"><?php echo $guest->friend_first_name. ' '.$guest->friend_middle_name .' '.$guest->friend_last_name ?></li>
+                        foreach ($guests as $guest) { ?>
+                            <li class="list-group-item"><?php echo $guest->friend_first_name . ' ' . $guest->friend_middle_name . ' ' . $guest->friend_last_name ?></li>
                         <?php }
                         ?>
                     </ul>
                 </div>
             </div>
+
+
+            <div class="row">
+
+                <?php
+
+                if (sizeof($reservations) === 0) {
+                    echo "<h3 class='text-info'>No one has booked it yet.</h3>";
+                }
+
+                foreach ($reservations as $key => $reservation) {
+                    $username = $reservation->username;
+                    $nog = $reservation->number_of_guests;
+                    ?>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">booking <?php echo $key+1; ?></div>
+                            <div class="card-body bg-white">
+                                <h5 class="card-title"><?php echo "user: <a href='#'>" . $username . "</a>"; ?></h5>
+                                <?php
+                                if ($nog === "1") {
+                                    echo "<h5 class=\"card-text\">coming along</h5>";
+                                } else {
+                                    echo "<h5 class=\"card-text\">coming with " . $nog . " ppl</h5>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+
             <div class="close-event">
                 <!-- Button of closing an event-->
-                <form action="" method="post"  >
-                    <input type="hidden" name="closeid" value="<?= $id; ?>" />
-                    <button type="submit" name="closeEvent" class="btn btn-warning" id="close-button">Close Event</button>
+                <form action="" method="post">
+                    <input type="hidden" name="closeid" value="<?= $id; ?>"/>
+                    <button type="submit" name="closeEvent" class="btn btn-warning" id="close-button">Close Event
+                    </button>
                 </form>
                 <div>Is your event done?</div>
                 <div>Close it to archieve it and share its success</div>
@@ -131,4 +170,5 @@ include 'nav_header.php';?>
 
         </div>
     </section>
+
 </main>
