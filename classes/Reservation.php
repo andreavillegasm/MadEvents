@@ -33,14 +33,16 @@ class Reservation
      * list booked events based on date
      * return: $pdo->fetchAll
      */
-    public function listBookedEvents()
+    public function listBookedEvents($uid)
     {
         // select events
         $sql = "SELECT * FROM event_info ei JOIN reservation r JOIN users u ON ei.id = r.event_id AND u.userid = r.user_id  
-WHERE DATE(event_date) > CURDATE() ORDER BY event_date DESC";
+WHERE DATE(event_date) > CURDATE() AND r.user_id = :id ORDER BY event_date DESC";
 
 
         $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->bindParam(':id', $uid);
+
         $pdostm->execute();
 
         $events = $pdostm->fetchAll(PDO::FETCH_OBJ);

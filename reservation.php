@@ -27,10 +27,13 @@ include "includes/islogin.php";
 $dbconn = Database::getDb();
 $reservation = new Reservation($dbconn);
 
+// user id
+$uid = $_SESSION['userId'];
+
 // active events
 $events = $reservation->listEvents();
 // booked events
-$booked_events = $reservation->listBookedEvents();
+$booked_events = $reservation->listBookedEvents($uid);
 
 
 
