@@ -6,6 +6,9 @@ if($_SESSION){
     require_once 'classes/Query.php';
     $dbcon  = Database::getDb();
     $gallery_listing = new Query($dbcon);
+
+    //store the name of the admin
+    $admin = $_SESSION['username'];
     if(isset($_POST['Edit'])){
         $id = $_POST['id'];
         //var_dump($id);
@@ -23,7 +26,12 @@ if($_SESSION){
 
 
         $gallery_listing->update_pic($postdescription, $tagdescription, $id);
-        header('Location:admin_gallery.php');
+        if($admin == 'admin'){
+            header('Location:public_gallery.php');
+        }else{
+            header('Location:admin_gallery.php');
+        }
+
 
     }
 }
