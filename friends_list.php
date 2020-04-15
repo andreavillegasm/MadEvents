@@ -10,8 +10,14 @@ if ($_SESSION['username']) {
     $dbconn = Database::getDb();
     $f = new Guest($dbconn);
 
-    $friends = $f->listFriends($user_id);
-
+    //Check if the user is admin
+    if($_SESSION['username'] == 'admin'){
+        //show all friends
+        $friends = $f->listFriendsAdmin();
+    }else {
+        //showed logged in user friends
+        $friends = $f->listFriends($user_id);
+    }
 
     if (isset($_GET['inviteFriends'])) {
 

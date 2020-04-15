@@ -32,6 +32,28 @@ class Event
 
     }
 
+    //LIST OF ALL EVENTS IF THEY ARE ADMIN
+    public function listActiveEventsAdmin(){
+        $sql = "SELECT * FROM event_info WHERE event_status = '1' ORDER BY event_date DESC";
+        $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->execute();
+
+        $events = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $events;
+
+    }
+
+    //LIST OF ALL EVENTS THAT ARE CLOSED FOR ADMIN
+    public function listPastEventsAdmin(){
+        $sql = "SELECT * FROM event_info WHERE event_status = '0' ORDER BY event_date DESC";
+        $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->execute();
+
+        $events = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $events;
+
+    }
+
     //LIST OF ALL EVENTS THAT ARE CLOSED
     public function listPastEvents($id){
         $sql = "SELECT * FROM event_info WHERE event_status = '0' AND user_id = :id  ORDER BY event_date DESC";

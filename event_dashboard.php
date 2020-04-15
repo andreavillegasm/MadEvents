@@ -19,8 +19,10 @@ if ($_SESSION['username']){
     $ne = new Event($dbconn);
     $u = new Users($dbconn);
 
-    //Grab all the users and id
+    //Grab all the users
     $users =  $u->user_email();
+
+    //Loop through and get the id of the logged in user and store it on the session
     foreach ($users as $user){
         if($user->username == $_SESSION['username']){
             $id = $user->userid;
@@ -29,11 +31,18 @@ if ($_SESSION['username']){
         }
     }
 
-//Get all the active events
-    $active = $ne->listActiveEvents($id);
+    //If the user is admin just get all of the events
+    if($_SESSION['username'] == 'admin'){
+        $active = $ne->listActiveEventsAdmin();
+        $past = $ne->listPastEventsAdmin();
+    }else {
 
-//Get all the past events
-    $past = $ne->listPastEvents($id);
+        //Get all the active events with that id
+        $active = $ne->listActiveEvents($id);
+
+        //Get all the past events with that id
+        $past = $ne->listPastEvents($id);
+    }
 
 } else {
 

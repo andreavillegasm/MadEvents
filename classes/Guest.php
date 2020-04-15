@@ -21,6 +21,18 @@ class Guest
         return $friends;
     }
 
+    //LIST OF ALL FRIENDS FOR ADMIN
+    public function listFriendsAdmin(){
+
+        $sql = "SELECT * FROM friends";
+        $pdostm = $this->dbconn->prepare($sql);
+        $pdostm->execute();
+
+        $friends = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $friends;
+    }
+
+
     public function listGuests($event_id){
 
         $sql = "select * from guest_list join event_info
