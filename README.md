@@ -7,6 +7,15 @@ livelink: https://jsandzz.tech/mad_event/
 
 Please find the database sql file and the ERD screenshot on the Database folder 
 
+#Login Credentials:
+### admin
+1. username = 'admin'
+2. password = 'admin'
+
+### user
+1.username = 'eventuser'
+2.password = 'eventuser'
+
 ## Gallery Feature - Jashanpreet Kaur
 1. Public gallery:
 From(public_gallery.php) here everyone can see the complete pictures. Which is posted by the event attendees. So that new user will have a clear idea that how our event actually happend and how our guest enjoyed it. Also a public gallery will give opportunity to every user to share their happiness with everyone.
