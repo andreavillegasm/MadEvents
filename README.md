@@ -13,8 +13,8 @@ Please find the database sql file and the ERD screenshot on the Database folder
 2. password = 'admin'
 
 ### user
-1.username = 'eventuser'
-2.password = 'eventuser'
+1. username = 'eventuser'
+2. password = 'eventuser'
 
 ## Gallery Feature - Jashanpreet Kaur
 1. Public gallery:
