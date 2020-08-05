@@ -77,7 +77,7 @@
                             </div>';
                     }
                 ?>
-                <form action="includes/signup.inc.php" method="post">
+                <form action="/signup.inc.php" method="post">
                     <div class="form-group text-white">
                         <label for="firstname">First Name</label>
                         <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First Name">
