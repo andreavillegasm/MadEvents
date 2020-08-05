@@ -1,9 +1,9 @@
 /* STYLE GUIDE*/
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 
 /*NEW EVENT*/
-.main-title{
+/*.main-title{
     text-align: center;
     padding: 0.5em;
 }
@@ -11,18 +11,16 @@
 .submit{
     text-align: center;
 }
-.btn-info{
-    width: 40%;
-}
-.new-event-container{
+
+/*.new-event-container{
     padding: 1.5em;
     border-radius: 1rem;
     background-color: white;
     width: 50%;
     margin: auto;
-}
+}*/
 /* FRIEND LIST */
-.friend-container{
+/*.friend-container{
     padding: 1.5em;
     border-radius: 1rem;
     background-color: white;
@@ -35,7 +33,7 @@
     width: 20%;
 }
 /* EVENT DASHBOARD*/
-.banner-event{
+/*.banner-event{
     height:10em;
     text-align: center;
 }
@@ -49,14 +47,12 @@
 .myevents-main{
     padding-top: 0;
 }
-.new-event-button{
+/*.new-event-button{
     text-align: center;
     padding-bottom: 2em;
-}
-/*.card:hover{
-    opacity: 60%;
 }*/
-.event-name{
+
+/*.event-name{
     color: white;
     background-color: rgba(0,0,0, 0.5);
     padding: 1em;
@@ -65,17 +61,23 @@
     text-align: center;
 
 }
+
+.event-container{
+    margin-bottom: 3em;
+}
+
 .view-button{
     text-align: center;
     padding-bottom: 1em;
+    border-radius: 20px;
 }
 /* EVENT INFO PAGE ACTIVE */
-.event-description{
+/*.event-description{
     color: white;
 }
 
 /* EVENT INFO PAGE PAST*/
-.view-gallery-btn{
+/*.view-gallery-btn{
     margin-bottom: 2em;
     margin-top: 0.5em;
     text-align: center;
@@ -109,7 +111,7 @@
 }
 
 /* How to style the guests*/
-#guest-list-design{
+/*#guest-list-design{
     margin-top: 2em;
     margin-left: 25%;
     width: 50%;

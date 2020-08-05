@@ -91,7 +91,6 @@ Mad_Event Team
         $su->addUser($username, $firstname, $lastname, $email, $hash);
 
 
-
         header("Location: ../signup.php?signup=success");
         exit();
     }

@@ -15,13 +15,13 @@
 
             <ul class="list-inline d-flex flex-column">
                 <li class="list-inline-item">
-                    <a class="nav-link text-dark" href="#">Home</a>
+                    <a class="nav-link text-dark" href="index.php">Home</a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link text-dark" href="#">Events</a>
+                    <a class="nav-link text-dark" href="event_dashboard.php">Events</a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link text-dark" href="#">Create Events</a>
+                    <a class="nav-link text-dark" href="new_event.php">Create Events</a>
                 </li>
             </ul>
         </div>

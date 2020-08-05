@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* CREATE EVENT */
+
+.main-title{
+    text-align: center;
+    padding: 0.5em;
+}
+
+.submit{
+    text-align: center;
+}
+
+.new-event-container{
+    padding: 1.5em;
+    border-radius: 1rem;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+}
+
+/* EVENT DASHBOARD */
+
+.event-name{
+    color: white;
+    background-color: rgba(0,0,0, 0.5);
+    padding: 1em;
+    margin-left: 10px;
+    margin-top: 20px;
+    text-align: center;
+
+}
+.view-button{
+    text-align: center;
+    padding: 2em;
+}
+
+.event-container{
+    padding-bottom: 2em;
+}
+
+.banner-event{
+    height:10em;
+    text-align: center;
+}
+
+#my-events, #event-catchline{
+    color: white;
+}
+
+.dashboard{
+    padding: 0;
+    margin: 0;
+}
+
+.myevents-main{
+    padding-top: 0;
+}
+.new-event-button{
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+
+/* FRIEND LIST */
+.friend-container{
+    padding: 1.5em;
+    border-radius: 1rem;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+
+}
+#btn_addFriend{
+    text-align: center;
+    width: 20%;
+}
+
+
+/* EVENT INFO PAGE ACTIVE */
+.event-description{
+    color: white;
+}
+
+/* EVENT INFO PAGE PAST*/
+.view-gallery-btn{
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+    text-align: center;
+
+}
+#btn_viewGallery{
+    width: 20%;
+}
+#info-buttons{
+    margin-right: 445px;
+    margin-left: 445px;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#infoedit-button, #infodelete-button{
+    width: 80px;
+    margin: 0;
+}
+
+#guest-list-container, #design-invitation-container{
+    background-color: #E8F5FB;
+    border: lightgrey 1px solid;
+    padding: 2em;
+    border-radius: 20px;
+    text-align: center;
+}
+#guest-list-container{
+    margin-right: 70px;
+}
+
+/* How to style the guests*/
+#guest-list-design{
+    margin-top: 2em;
+    margin-left: 25%;
+    width: 50%;
+}
+
+.imginfo-icons{
+    width: 20%;
+}
+#guest-list-container .imginfo-icons{
+    margin-bottom: 20px;
+}
+.close-event{
+    margin-top: 4em;
+    text-align: center;
+}
+#close-button{
+    width: 30%;
+}
+.back-link, .button-center{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#invited-badge{
+    margin-left: 20px;
+}
+#back{
+    margin-left: 20px;
+}

@@ -59,9 +59,6 @@ if ($_SESSION['username']){
     <title>My Events</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/myevent.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -74,47 +71,48 @@ if ($_SESSION['username']){
             <p class="lead text-muted">Have something exciting planned?</p>
         </div>
         <div class="new-event-button">
-            <a href="new_event.php" id="btn_addEvent" class="btn btn-info">New Event</a>
+            <a href="new_event.php" class="btn btn-info">Create Event</a>
         </div>
     </section>
+
+    <!-- Page Container -->
+
     <div class="container">
 
         <!-- List of active events -->
-        <div>Active Events
-            <div class="row">
+        <div class="event-container">
+            <h3 style="font-size: 20px"> Active Events </h3>
+            <div class="card-columns">
                 <?php
                 foreach ($active as $a){
                 ?>
-                <div class="col">
-                    <div class="card text-black">
-                        <!-- Pass event with the id of the event -->
+                <!--<div class="col">-->
+                    <div class="card">
                         <img src="img/event-icon.jpg" class="card-img" alt="sample1">
                         <div class="card-img-overlay">
                             <h5 class="event-name" ><?php echo $a->event_name ?></h5>
                             <div class="view-button">
                                 <form action="eventinfo_active.php" method="get"  >
                                     <input type="hidden" name="id" value="<?= $a->id; ?>" />
-                                    <button type="submit" name="viewEvent" class="btn-info">View</button>
+                                    <button type="submit" name="viewEvent" class=" btn btn-info">View</button>
                                 </form>
                             </div>
                         </div>
 
                     </div>
-
-
-                </div>
                 <?php
                 }
                 ?>
             </div>
         </div>
+
         <!-- List of Past Events -->
-        <div> Past Events
-            <div class="row">
+        <div class="event-container">
+            <h3 style="font-size: 20px" > Past Events </h3>
+            <div class="card-columns">
                 <?php
                 foreach ($past as $p){
                     ?>
-                    <div class="col">
                         <div class="card text-black">
                             <!-- Pass event with the id of the event -->
                             <img src="img/event-icon.jpg" class="card-img" alt="sample1">
@@ -123,20 +121,19 @@ if ($_SESSION['username']){
                                 <div class="view-button">
                                     <form action="eventinfo_past.php" method="get"  >
                                         <input type="hidden" name="id" value="<?= $p->id; ?>" />
-                                        <button type="submit" name="viewpEvent" class="btn-info">View</button>
+                                        <button type="submit" name="viewpEvent" class="btn btn-info">View</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
                     <?php
                 }
                 ?>
             </div>
         </div>
     </div>
+
+
 
 
 </main>

@@ -6,6 +6,10 @@ if (!isset($_SESSION)) {
 ?>
 
 <link src="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/eventstyle.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -83,7 +87,7 @@ if (!isset($_SESSION)) {
 if (isset($_SESSION['userId'])) {
     echo '<li class="nav-item login-btn">
                             <form action="includes/logout.inc.php" method="post">
-                                <button type="submit" name="logout">Sign Out</button>
+                                <button type="submit" name="logout" class="btn btn-outline-light" id="sign-out">Sign Out</button>
                             </form>
                         </li>';
 } else {

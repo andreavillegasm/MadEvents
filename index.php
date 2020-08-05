@@ -92,9 +92,11 @@
                 <p class="text-light">Sign up with your email address to receive future events and updates</p>
             </div>
             <div class="col">
-                <div class="form-newsletter">
-                    <input type="text" placeholder="Email Address">
-                    <button type="button" class="btn btn-light">Submit</button>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Email Address">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-light">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
