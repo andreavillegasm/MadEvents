@@ -3,7 +3,7 @@ project-repo-mad_events created by GitHub Classroom
 
 Our team will create an event planning web application that will help its users plan events by providing them with a venue and vendor options that meet the requirements of the event they wish to plan. In this web application, a user can create his/her profile to create events by at his/her own. Moreover, they can invite friends, share their picture or videos, and browse more events based on their interests. We also offer our users a chatbox where they can instantly talk with us, and the ability to reserve their table for the event in advance. Finally, we also remind our users about the upcomig events that they have planned or have been invited to.
 
-livelink: https://jsandzz.tech/mad_event/
+livelink: http://madevent.andreavillegasma.com/
 
 Please find the database sql file and the ERD screenshot on the Database folder 
 
@@ -77,7 +77,6 @@ Users can edit the information regarding a particular friend, as well as delete 
 
 ## Join an event - Tianyi
 
-https://jsandzz.tech/mad_event/reservation.php
 
 1. See available events:
 
